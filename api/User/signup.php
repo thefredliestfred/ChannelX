@@ -1,10 +1,9 @@
 <?php
-require_once("");
+require_once("./config/membersite_config.php");
 
 if(isset($_POST['submitted'])){
-  if($fgmembersite->RegisterUser()){
-    # Leads to thanks page
-    $fgmembersite->RedirectToURL('');
+  if($cxmembersite->RegisterUser()){
+    $cxmembersite->RedirectToURL('thank-you.html');
   }
 }
 ?>
@@ -13,6 +12,7 @@ if(isset($_POST['submitted'])){
 <head>
   <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
   <!-- Maybe add a title next? -->
+  <title>ChannelX</title>
   <link rel="STYLESHEET" type="text/css" href="style/fg_membersite.css" />
   <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
   <link rel="STYLESHEET" type="text/css" href="style/pwdwidget.css" />
@@ -22,27 +22,35 @@ if(isset($_POST['submitted'])){
 
 <!-- Start form code next -->
 <div id='fg_membersite'>
-<form id='register' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
+<form id='register' action='<?php echo $cxmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
 <fieldset >
 <legend>Register</legend>
 
 <input type='hidden' name='submitted' id='submitted' value='1'/>
 
 <div class='short_explanation'>* required fields</div>
-<input type='text'  class='spmhidip' name='<?php echo $fgmembersite->GetSpamTrapInputName(); ?>' />
+<input type='text'  class='spmhidip' name='<?php echo $cxmembersite->GetSpamTrapInputName(); ?>' />
 
-<div><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
+<div><span class='error'><?php echo $cxmembersite->GetErrorMessage(); ?></span></div>
+
 <div class='container'>
     <label for='name' >Your Full Name*: </label><br/>
-    <input type='text' name='name' id='name' value='<?php echo $fgmembersite->SafeDisplay('name') ?>' maxlength="50" /><br/>
+    <input type='text' name='name' id='name' value='<?php echo $cxmembersite->SafeDisplay('name') ?>' maxlength="50" /><br/>
     <span id='register_name_errorloc' class='error'></span>
 </div>
+
 <div class='container'>
     <label for='email' >Email Address*:</label><br/>
-    <input type='text' name='email' id='email' value='<?php echo $fgmembersite->SafeDisplay('email') ?>' maxlength="50" /><br/>
+    <input type='text' name='email' id='email' value='<?php echo $cxmembersite->SafeDisplay('email') ?>' maxlength="50" /><br/>
     <span id='register_email_errorloc' class='error'></span>
 </div>
-<!-- Need to add phone number thing -->
+
+<div class='container'>
+    <label for='phone number' >Phone Number*:</label><br/>
+    <input type='text' name='phone number' id='phone number' value '<?php echo $cxmembersite->SafeDisplay('phone number') ?>' maxlength="10" /><br/>
+    <span id='register_phonenumber_errorloc' class='error'></span>
+</div>
+
 <div class='container' style='height:80px;'>
     <label for='password' >Password*:</label><br/>
     <div class='pwdwidgetdiv' id='thepwddiv' ></div>
@@ -59,8 +67,7 @@ if(isset($_POST['submitted'])){
 </fieldset>
 </form>
 
-<!-- client-side Form Validations:
-Uses the excellent form validation script from JavaScript-coder.com-->
+<!-- client-side Form Validations-->
 
 <script type='text/javascript'>
 // <![CDATA[
@@ -70,14 +77,15 @@ Uses the excellent form validation script from JavaScript-coder.com-->
     var frmvalidator  = new Validator("register");
     frmvalidator.EnableOnPageErrorDisplay();
     frmvalidator.EnableMsgsTogether();
-    frmvalidator.addValidation("name","req","Please provide your name");
+    frmvalidator.addValidation("name","req","Please provide your name.");
 
-    frmvalidator.addValidation("email","req","Please provide your email address");
+    frmvalidator.addValidation("email","req","Please provide your email address.");
 
-    frmvalidator.addValidation("email","email","Please provide a valid email address");
-//  Need to add phone number validation
+    frmvalidator.addValidation("email","email","Please provide a valid email address.");
 
-    frmvalidator.addValidation("password","req","Please provide a password");
+    frmvalidator.addValidation("phone number", "phone number", "Please provide a valid phone number.");
+
+    frmvalidator.addValidation("password","req","Please provide a password.");
 
 // ]]>
 </script>

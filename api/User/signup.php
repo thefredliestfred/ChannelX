@@ -3,7 +3,7 @@ require_once("./config/membersite_config.php");
 
 if(isset($_POST['submitted'])){
   if($cxmembersite->RegisterUser()){
-    $cxmembersite->RedirectToURL('thank-you.html');
+    $cxmembersite->RedirectToURL('pages/thank-you.html');
   }
 }
 ?>
@@ -13,9 +13,9 @@ if(isset($_POST['submitted'])){
   <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
   <!-- Maybe add a title next? -->
   <title>ChannelX</title>
-  <link rel="STYLESHEET" type="text/css" href="style/cx_membersite.css" />
+  <link rel="STYLESHEET" type="text/css" href="assets/css/style.css" />
   <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
-  <link rel="STYLESHEET" type="text/css" href="style/pwdwidget.css" />
+  <link rel="STYLESHEET" type="text/css" href="assets/css/pwdwidget.css" />
   <script src="scripts/pwdwidget.js" type="text/javascript"></script>
 </head>
 <body>

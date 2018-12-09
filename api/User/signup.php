@@ -13,6 +13,7 @@ if(isset($_POST['submitted'])){
   <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
   <!-- Maybe add a title next? -->
   <title>ChannelX</title>
+
   <link rel="STYLESHEET" type="text/css" href="assets/css/style.css" />
   <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
   <link rel="STYLESHEET" type="text/css" href="assets/css/pwdwidget.css" />
@@ -21,6 +22,7 @@ if(isset($_POST['submitted'])){
 <body>
 
 <!-- Start form code next -->
+
 <div id='cx_membersite'>
 <form id='register' action='<?php echo $cxmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
 <fieldset >

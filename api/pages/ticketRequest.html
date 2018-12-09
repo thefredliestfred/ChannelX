@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!--Header and Title for pages-->
+<head>
+  <title>ChannelX</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+    .button {background-color: lightblue; color: black; height: 50px}
+    .grid-container {
+      display:grid; grid-template-columns: auto; grid-gap: 2px;
+    }
+    .grid-container > div {border: 1px solid black;}
+    textarea {width:99%; height: 150px; background-color: #f8f8f8;
+      font-size: 16px; resize: none;
+    }
+  </style>
+</head>
+
+<!--All the stuff you see-->
+<body>
+
+  <!--Header-->
+  <h1 style="text-align:center;font-size:60px">ChannelX</h1>
+
+  <!--Support ticket request-->
+  <div class="grid-container">
+    <div class="item1">To: Support Team</div>
+    <div class="item2">
+      <form>
+        <textarea>Write down the issue that you are having here...</textarea>
+      </form>
+    </div>
+    <div class="item3">
+      <button class="button" id="cancelBtn">Cancel</button>
+      <button class="button" id="sendBtn" style="float:right">Send</button>
+      <script>
+        var canbtn = document.getElementById('cancelBtn');
+        canbtn.onclick = function() {}
+        var sdbtn = document.getElementById('sendBtn');
+        sdbtn.onclick = function() {}
+      </script>
+    </div>
+</div>
+
+</body>
+</html>

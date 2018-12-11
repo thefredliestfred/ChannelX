@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-
 <!--Header and Title for pages-->
 <head>
   <title>ChannelX</title>
@@ -16,7 +15,7 @@
 <body>
 
   <!--Header-->
-  <a href="homeChannelX"; style="float:left;"> &lt; Return</a>
+  <a href="findNewChannel.html"; style="float:left;"> &lt; Return</a>
   <h1 style="text-align:center;font-size:60px">ChannelX</h1>
 
   <!--Channel name with form box -->
@@ -47,13 +46,9 @@
     <div class="form-group"; style="text-align:center">
       <p>
         <label for="generateAlias">Generated Alias: &lt;ALIAS&gt;</label>
-        <button class="button" id="aliasBtn"> Generate Another Alias </button>
+        <button class="button" id="aliasBtn"> Generate Another Alias <br>(NotActive)</button>
       </p>
     </div>
-    <script>
-      var btn = document.getElementById('aliasBtn');
-      btn.onclick = function() {}
-    </script>
   </form>
 
   <!--Schedule with date box and calandars and Quiet Hours with From/To pull down menus-->
@@ -102,18 +97,10 @@
   </article>
 
   <!--Create channel button-->
-  <div class="createChannel">
-    <form action=" URL " class="add" method="POST">
-      <div class="form-group"; style="text-align:center; padding:150px">
-        <p>
-          <button class="button" id="newChanBtn"> Create New Channel </button>
-        </p>
-      </div>
-      <script>
-        var btn = document.getElementById('newChanBtn');
-        btn.onclick = function() {}
-      </script>
-    </form>
+  <div class="form-group"; style="text-align:center; padding:150px">
+    <p>
+      <a href="channelSettings.html"><button class="button">Create New Channel</button></a>
+    </p>
   </div>
 
 </body>

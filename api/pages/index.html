@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+
+
+<!-- Header and Title -->
+<head>
+  <title>ChannelX</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+    .button {background-color: lightblue; color: black; height: 50px; width: 70px;
+      margin: auto; display:block;
+
+    }
+    .grid-container {
+      display:grid; grid-template-comlumns: auto; grid-gap: 8px;
+    }
+    textarea {width:99%; height: 150px; background-color: #f8f8f8;
+      font-size: 16px; resize: none;
+    }
+  </style>
+</head>
+
+<!--- Items on page -->
+<body>
+  <!-- Header -->
+  <h1 style="text-align:center;font-size:60px">ChannelX</h1>
+
+  <!-- Login and SignUp buttons -->
+  <div class="grid-container">
+
+    <div class="item1">
+      <button style="text-align:center" class="button" id="signUpBtn">Sign Up</button>
+      <script>
+        var logBtn = document.getElementById('loginBtn');
+        logBtn.onclick = function() {}
+      </script>
+    </div>
+
+    <div class="item2">
+      <button class="button" id="loginBtn">Login</button>
+      <script>
+        var logBtn = document.getElementById('loginBtn');
+        logBtn.onclick = function() {}
+      </script>
+    </div>
+
+  </div>
+
+</body>
+</html>

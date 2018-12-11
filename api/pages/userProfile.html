@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!--Header and Title for pages-->
+<head>
+  <title>ChannelX</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+    .button {background-color: lightblue; color: black; height: 50px; width: 80px}
+    .changeButton {background-color: lightblue; color: black; height: 35px;
+      width: 145px; border: 1px solid black;}
+    .grid-container {
+      display:grid; grid-template-comlumns: auto; grid-gap: 8px;
+     }
+    p {padding-top: 5px}
+  </style>
+</head>
+
+<!-- Items on Page -->
+<body>
+
+  <!-- Header -->
+  <a href="homeChannelX"; style="float:left;"> &lt; Return</a>
+  <h1 style="text-align:center;font-size:60px">ChannelX</h1>
+
+  <!-- Profile Settings -->
+  <section style="float:center; text-align:left; width:80%; padding-left:10%">
+    <h3>Profile Settings</h3>
+    <div style="height:30% text-align:left; border: 1px solid black; background-color: lightgray">
+      <p style='padding-left:10px'>
+        Name: {User name}
+        <button class='changeButton' style='margin-left:10px; border: 1px solid black' id='changeName'>Change Name</button>
+      </p>
+      <p style='padding-left:10px'>
+        Email: {User email}
+        <button class='changeButton' style='margin-left:10px; border: 1px solid black' id='changeEmail'>Change Email</button>
+      </p>
+      <p style='padding-left:10px'>
+        Phone: {User phone number}
+        <button class='changeButton' style='margin-left:10px; border: 1px solid black' id='changeNum'>Change Phone Number</button>
+      </p>
+    </div>
+  </section>
+
+  <!-- Change Password -->
+  <section style='padding-left:10%'>
+    <h3>Change Password</h3>
+    <div style="float:left; height:30%; width:30%; text-align:left; border: 1px solid black; background-color: lightgray">
+      <div style='margin:auto; display:block; padding-top:3%; padding-left:30%'>
+        <input type = "text"
+                 id = "old"
+                 value = "Old Password"
+                 style = 'border: 1px solid black'/>
+      </div>
+
+      <div style='margin:auto; display:block;padding-top:3%; padding-left:30%'>
+          <input type = "text"
+                  id = "new"
+                  value = "New Password"
+                  style = 'border: 1px solid black'/>
+      </div>
+
+      <div style='margin:auto; display:block;padding-top:3%; padding-left:30%'>
+          <input type = "text"
+                  id = "confirm"
+                  value = "Confirm Password"
+                  style = 'border: 1px solid black'/>
+      </div>
+
+      <div style='margin:auto; display:block;padding-top:3%; padding-left:28%; padding-bottom:3%'>
+          <button class='changeButton' style='font-size:12px' id='changePW'>Change Password</button>
+          <script>
+            var changeBtn = document.getElementById('changePW');
+            changeBtn.onclick = function() {
+
+            }
+          </script>
+      </div>
+    </div>
+
+    <div class='grid-container' style="height:30%; float:right; padding-right:33%; padding-top:1.5%">
+      <button class='button' style='width: 120px; font-size:15px; border: 1px solid black' id ='signOutBtn'>Sign Out</button>
+      <script>
+        var signout = document.getElementById('signOutBtn');
+        signout.onclick = function() {
+
+        }
+      </script>
+
+      <button class='button' style='width: 120px; font-size:15px; border: 1px solid black' id ='deleteBtn'>Delete Account</button>
+      <script>
+        var deleteABtn = document.getElementById('deleteBtn');
+        deleteABtn.onclick = function() {
+
+        }
+      </script>
+
+    </div>
+  </section>
+
+
+</body>
+</html>

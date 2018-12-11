@@ -21,7 +21,7 @@
 <body>
 
   <!-- Header -->
-  <a href="homeChannelX"; style="float:left;"> &lt; Return</a>
+  <a href=""; style="float:left;"> &lt; Return</a>
   <h1 style="text-align:center;font-size:60px">ChannelX</h1>
 
   <!-- Profile Settings -->
@@ -47,55 +47,31 @@
   <section style='padding-left:10%'>
     <h3>Change Password</h3>
     <div style="float:left; height:30%; width:30%; text-align:left; border: 1px solid black; background-color: lightgray">
-      <div style='margin:auto; display:block; padding-top:3%; padding-left:30%'>
-        <input type = "text"
-                 id = "old"
-                 value = "Old Password"
-                 style = 'border: 1px solid black'/>
+      <div style='margin:auto; display:block; padding-top:3%; padding-left:10%'>
+        <input type = "text"; id = "old"
+                 placeholder="Old Password"; style = 'border: 1px solid black'/>
       </div>
 
-      <div style='margin:auto; display:block;padding-top:3%; padding-left:30%'>
-          <input type = "text"
-                  id = "new"
-                  value = "New Password"
-                  style = 'border: 1px solid black'/>
+      <div style='margin:auto; display:block;padding-top:3%; padding-left:10%'>
+          <input type = "text"; id = "new"
+              placeholder="New Password"; style= 'border: 1px solid black'/>
       </div>
 
-      <div style='margin:auto; display:block;padding-top:3%; padding-left:30%'>
-          <input type = "text"
-                  id = "confirm"
-                  value = "Confirm Password"
+      <div style='margin:auto; display:block; padding-top:3%; padding-left:10%'>
+          <input type = "text"; id = "confirm"; placeholder = "Confirm Password"
                   style = 'border: 1px solid black'/>
       </div>
 
       <div style='margin:auto; display:block;padding-top:3%; padding-left:28%; padding-bottom:3%'>
           <button class='changeButton' style='font-size:12px' id='changePW'>Change Password</button>
-          <script>
-            var changeBtn = document.getElementById('changePW');
-            changeBtn.onclick = function() {
-
-            }
-          </script>
       </div>
     </div>
 
     <div class='grid-container' style="height:30%; float:right; padding-right:33%; padding-top:1.5%">
-      <button class='button' style='width: 120px; font-size:15px; border: 1px solid black' id ='signOutBtn'>Sign Out</button>
-      <script>
-        var signout = document.getElementById('signOutBtn');
-        signout.onclick = function() {
-
-        }
-      </script>
-
-      <button class='button' style='width: 120px; font-size:15px; border: 1px solid black' id ='deleteBtn'>Delete Account</button>
-      <script>
-        var deleteABtn = document.getElementById('deleteBtn');
-        deleteABtn.onclick = function() {
-
-        }
-      </script>
-
+      <a href="index.html"><button class='button' style='width: 120px; font-size:15px; border: 1px solid black' id ='signOutBtn'>Sign Out</button></a>
+      <button class='button' style='width: 120px; font-size:15px; border: 1px solid black'>Delete Account</button>
+      <a href="findNewChannel.html"><button class='button' style='width: 120px; font-size:15px; border: 1px solid black'>Find a Channel</button></a>
+      <a href="createChannel.html"><button class='button' style='width: 120px; font-size:15px; border: 1px solid black'>Create a Channel</button></a>
     </div>
   </section>
 

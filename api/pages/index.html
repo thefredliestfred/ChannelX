@@ -4,28 +4,125 @@
 
 <!-- Header and Title -->
 <head>
+  <meta name='viewport' content='device-width, initial-scale=1'>
   <title>ChannelX</title>
+  <link rel="stylesheet" href="mainMenu.css">
   <style>
-    body { font-family: Arial, Helvetica, sans-serif;}
-    .button {background-color: lightblue; color: black; height: 50px; width: 70px;
-      margin: auto; display:block; border: 1px solid black
-
+    body, html {
+      font-family: Trebuchet MS;
+      height:100%;
+      margin: 0;
+    }
+    .bg {
+      /* Image to be changed later */
+      background-image: url(../objects/messages.jpeg);
+      /*url("https://cdn.pixabay.com/photo/2018/08/19/10/16/nature-3616194_960_720.jpg");*/
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display:flex;
+    }
+    .button {
+      background-color: lightblue;
+      color: black;
+      height: 50px;
+      width: 60%;
+      border: 1px solid black;
+      cursor: pointer;
+      display:block;
+      font-size: 16px;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+    .texthalf {
+      width: 50%;
+    }
+    .boxhalf {
+      flex: 1;
+    }
+    .container {
+      margin-right: 45%;
+      margin-bottom: 10%;
+      margin-top: 13%;
+      float: right;
+      border: 3px solid gray;
+      background-color: white;
+      height: 50%;
+      width: 50%;
     }
     .grid-container {
       display:grid; grid-template-comlumns: auto; grid-gap: 8px;
     }
-    textarea {width:99%; height: 150px; background-color: #f8f8f8;
-      font-size: 16px; resize: none;
+    .textarea {
+      margin-left:19%;
+      margin-top: 17%;
+    }
+    input[type=text], input[type=password] {
+      width: 50%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+  /*  textarea {width:99%; height: 150px; background-color: #f8f8f8;
+      font-size: 16px; resize: none; -->*/
     }
   </style>
 </head>
 
 <!--- Items on page -->
 <body>
-  <!-- Header -->
-  <h1 style="text-align:center;font-size:60px">ChannelX</h1>
 
-  <!-- Login and SignUp buttons -->
+  <ul>
+    <li><a href="mainhub.html">Home</a></li>
+    <li><a href="userProfile.html">Profile</a></li>
+    <li><a href="channelSettings.html">Channel Settings</a></li>
+    <li><a href="infoChannel.html">Channel Information</a></li>
+    <li><a href="createChannel.html">Create Channel</a></li>
+    <li><a href="findNewChannel.html">Find Channel</a></li>
+    <li><a href="newMessage.html">New Message</a></li>
+    <li><a href="ticketRequest.html">Contact Us</a></li>
+    <li><a href="signup.html">Sign Up</a></li>
+  </ul>
+
+  <div class='bg'>
+
+    <div class='texthalf'>
+    <h1 style="text-align:left;font-size:60px; color:white; padding-left:30%;
+    padding-top:15%">
+      ChannelX
+    </h1>
+    <h3 style="text-align:left; color:white; padding-left:26%;padding-top:1%;
+    width: 50%">
+      <center>
+      ChannelX is a personalized messaging app, built to protect your privacy, and your free time.
+    </center>
+    </h3>
+  </div>
+
+    <div class='boxhalf'>
+      <div class = 'container'>
+        <div class = 'textarea'>
+          <label for="email"><b>Email Address</b></label><br>
+          <input type="text" placeholder="Enter Email" name="uname" required>
+          <br>
+          <label for="psw"><b>Password</b></label><br>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+          <br><br>
+          <button class ='button';type="submit">Login</button>
+      </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Header -->
+
+
+
+  <!-- Login and SignUp buttons
   <div class="grid-container">
 
     <div class="item1">
@@ -36,7 +133,7 @@
       <a href="login.html"><button class="button">Login</button></a>
     </div>
 
-  </div>
+  </div> -->
 
 </body>
 </html>

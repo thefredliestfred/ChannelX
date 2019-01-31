@@ -6,7 +6,7 @@
 <head>
   <title>ChannelX</title>
 <!--Comment/Uncomment line for search icon-->
-<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     body { font-family: Arial, Helvetica, sans-serif;}
     .button {background-color: lightblue; color: black; height: 50px}
@@ -30,7 +30,7 @@
 <body>
 
   <!--Header-->
-  <a href="homeChannelX"; style="float:left;"> &lt; Return</a>
+  <a href=""; style="float:left;"> &lt; Return</a>
   <h1 style="text-align:center;font-size:60px">ChannelX</h1>
 
   <!--Channel information & Schedule-->
@@ -51,12 +51,8 @@
         </div>
       </section>
       <p style="margin:auto; width:200px; padding:10px">
-          <button class="button" id="settingBtn">Channel Settings</button>
+          <a href="channelSettings.html"><button class="button">Channel Settings</button></a>
       </p>
-      <script>
-        var btn = document.getElementById('settingBtn');
-        btn.onclick = function() {}
-      </script>
     </div>
   </section>
 
@@ -112,15 +108,9 @@
         </div>
       </section>
       <p>
-        <button class="button" id="newMessBtn">New Message</button>
-        <button class="button" id="draftBtn">Drafts</button>
+        <a href="newMessage.html"><button class="button">New Message</button></a>
+        <a href="draftPage.html"><button class="button">Drafts</button></a>
       </p>
-      <script>
-        var nMbtn = document.getElementById('newMessBtn');
-        nMbtn.onclick = function() {}
-        var dbtn = document.getElementById('draftBtn');
-        dbtn.onclick = function() {}
-      </script>
     </div>
   </section>
 

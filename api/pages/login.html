@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+
+<!-- Header and Title -->
+<head>
+  <title>ChannelX</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif;}
+    .button {background-color: lightblue; color: black; height: 45px; width: 70px;
+      margin: auto; display:block; border: 1px solid black
+    }
+    .grid-container {
+      display:grid; grid-template-comlumns: auto; grid-gap: 8px;
+    }
+
+    textarea {width:99%; height: 150px; background-color: #f8f8f8;
+      font-size: 16px; resize: none;
+    }
+  </style>
+</head>
+
+    <!--- Items on page -->
+<body>
+  <h1 style="text-align:center;font-size:60px">ChannelX</h1>
+
+  <!-- Login Info Boxes -->
+  <div class='grid-container'>
+
+    <p style='margin:auto; display:block; padding-top:5%'>
+      Enter your user information below.
+    </p>
+
+    <div style='margin:auto; display:block; padding-top:1%'>
+      <input type = "text"
+               id = "username"
+               value = "Enter username here" />
+    </div>
+
+    <div style='margin:auto; display:block;'>
+        <input type = "text"
+                id = "pw"
+                value = "Enter password here" />
+    </div>
+
+    <div class='item3' style='padding-top:1%'>
+      <a href="userProfile.html"><button class='button' style='font-size:17px' id ='logInBtn'>Login</button></a>
+    </div>
+  </div>
+
+</body>
+</html>

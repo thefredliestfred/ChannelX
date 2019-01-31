@@ -6,7 +6,7 @@
 <head>
   <title>ChannelX</title>
 <!--Comment/Uncomment line for search icon-->
-<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     body { font-family: Arial, Helvetica, sans-serif;}
     .button {background-color: lightblue; color: black; height: 50px}
@@ -30,7 +30,7 @@
 <body>
 
   <!--Header-->
-  <a href="homeChannelX"; style="float:left;"> &lt; Return</a>
+  <a href="mainhub.html"; style="float:left;"> &lt; Return</a>
   <h1 style="text-align:center;font-size:60px">ChannelX</h1>
 
   <!--Channel information-->
@@ -39,37 +39,27 @@
     <div style="text-align:left; border: 1px solid black; background-color: lightgray">
       <div class="search-container" style="padding: 10px 35px">
         <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search">
+          <input type="text" placeholder="Search..(NotActive)" name="search">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
       </div>
-      <div style="text-align:center">Channel Count: &lt;count&gt;<div>
       <section style="padding:5%">
         <div class="table-wrapper-scroll-y" style="border: 1px solid black; background-color:white">
           <table style="width:100%; text-align:left">
             <tbody>
-              <tr> <td>Channel Name 1</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 2</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 3</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 4</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 5</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 6</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 7</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 8</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 9</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 10</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 12</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 13</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 14</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 15</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 16</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 17</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 18</td> <td>&lt;List of Users&gt;</tr>
-              <tr> <td>Channel Name 19</td> <td>&lt;List of Users&gt;</tr>
+              <tr><td><button style='width:100%; height:45px'>Channel Name 1<br>{List of Users}</button></td></tr>
+              <tr><td><button style='width:100%; height:45px'>Channel Name 2<br>{List of Users}</button></td></tr>
+              <tr><td><button style='width:100%; height:45px'>Channel Name 3<br>{List of Users}</button></td></tr>
+              <tr><td><button style='width:100%; height:45px'>Channel Name 4<br>{List of Users}</button></td></tr>
+              <tr><td><button style='width:100%; height:45px'>Channel Name 5<br>{List of Users}</button></td></tr>
+              <tr><td><button style='width:100%; height:45px'>Channel Name 6<br>{List of Users}</button></td></tr>
+              <tr><td><button style='width:100%; height:45px'>Channel Name 7<br>{List of Users}</button></td></tr>
+              <tr><td><button style='width:100%; height:45px'>Channel Name 8<br>{List of Users}</button></td></tr>
             </tbody>
           </table>
         </div>
       </section>
+      <p style="font-size: 15px; text-align:center"> Channel Count: {Count} </p>
     </div>
   </section>
 
@@ -82,13 +72,11 @@
         <input class="form-control" placeholder="<Channel Name>" id="createChannel" name="createChannel" type="text">
       </p>
       <p style="margin:auto; width:200px; padding:10px">
-          <button class="button" id="requestBtn">Send Join Request</button>
+          <button class="button">Send Join Request<br>(NotActive)</button>
       </p>
-      <script>
-        var reqbtn = document.getElementById('requestBtn');
-        reqbtn.onclick = function() {}
-      </script>
     </div>
+    <p style="padding-top:50px"></p>
+    Questions? Issues? Submit a ticket <a href="ticketRequest.html"><u>here!</u></a>
   </section>
 
 </body>

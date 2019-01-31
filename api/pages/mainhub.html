@@ -4,6 +4,8 @@
 <!-- Header and Title for page-->
 <head>
   <title>ChannelX</title>
+  <!--Comment/Uncomment line for search icon-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     body { font-family: Arial, Helvetica, sans-serif;}
     .button {background-color: white; color: black; height: 40px; width: 170px}
@@ -37,19 +39,19 @@
 
     <div style="text-align:center; border: 1px solid black; width:300px; height: 200px; background-color: lightgray">
       <p style='margin:auto; padding-top:28px'>
-        <button class='button' id='createBtn'>Create Channel</button>
+        <a href="createChannel.html"><button class='button' id='createBtn'>Create Channel</button></a>
       </p>
       <p style='margin:auto; padding:10px'>
-        <button class='button' id='findBtn'>Find a Channel</button>
+        <a href="findNewChannel.html"><button class='button' id='findBtn'>Find a Channel</button></a>
       </p>
       <p style='margin:auto; padding-bottom:25px'>
-        <button class='button' id='userBtn'>User Profile</button>
+        <a href="userProfile.html"><button class='button' id='userBtn'>User Profile</button></a>
       </p>
 
       <!-- Help Link-->
       <footer style="float:right; margin: auto; padding-top:26%; padding-right:2%">
         <p>
-          Questions? Submit a help request <a href='submitTicket.html'>here!</a>
+          Questions? Submit a help request <a href='ticketRequest.html'>here!</a>
         </p>
       </footer>
       </div>
@@ -85,9 +87,6 @@
         Channel Count: {Count}
       </p>
     </section>
-
-
-
 
 </body>
 </html>

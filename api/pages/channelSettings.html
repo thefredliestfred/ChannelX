@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-
 <!--Header and Title for pages-->
 <head>
   <title>ChannelX</title>
 <!--Comment/Uncomment line for search icon-->
-<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     body { font-family: Arial, Helvetica, sans-serif;}
     .button {background-color: lightblue; color: black; height: 50px}
@@ -30,7 +29,7 @@
 <body>
 
   <!--Header-->
-  <a href="homeChannelX"; style="float:left;"> &lt; Return</a>
+  <a href="infoChannel.html"; style="float:left;"> &lt; Return</a>
   <h1 style="text-align:center;font-size:60px">ChannelX</h1>
 
   <!--Channel information & Schedule-->
@@ -60,15 +59,9 @@
         </div>
       </section>
       <p style="margin:auto; width:200px; padding:10px">
-          <button class="button" id="saveBtn">Save Changes</button>
-          <button class="button" id="canBtn">Cancel</button>
+          <button class="button">Save Changes<br>(NotActive)</button>
+          <a href="infoChannel.html"><button class="button">Cancel<br></br></button></a>
       </p>
-      <script>
-        var savebtn = document.getElementById('saveBtn');
-        savebtn.onclick = function() {}
-        var canbtn = document.getElementById('canBtn');
-        canbtn.onclick = function() {}
-      </script>
     </div>
   </section>
 
@@ -100,23 +93,15 @@
         </div>
       </section>
       <p style="margin:auto; width:200px; padding:10px">
-          <button class="button" id="removeBtn">Remove User</button>
+          <button class="button">Remove User<br>(NotActive)</button>
       </p>
-      <script>
-        var removebtn = document.getElementById('removeBtn');
-        removebtn.onclick = function() {}
-      </script>
     </div>
   </section>
 
   <section style="float:right; text-align:center; width:35%; padding:10% 10%">
     <p style="margin:auto; width:200px; padding:10px">
-      <button class="button" id="delBtn">Delete Channel</button>
+      <button class="button">Delete Channel<br>(NotActive)</button>
     </p>
-    <script>
-      var deletebtn = document.getElementById('delBtn');
-      deletebtn.onclick = function() {}
-    </script>
   </section>
 
 </body>

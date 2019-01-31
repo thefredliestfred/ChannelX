@@ -14,7 +14,7 @@
     }
     .bg {
       /* Image to be changed later */
-      background-image: url(../objects/messages.jpeg);
+      background-image: url(../objects/message2.jpeg);
       height: 100%;
       background-position: center;
       background-repeat: no-repeat;
@@ -24,10 +24,10 @@
     .button {
       background-color: lightblue;
       color: black;
-      height: 100%;
+      height: 70%;
       margin-bottom: 3%;
       width: 40%;
-      border: 1px solid black;
+      border: 2px solid gray;
       margin: auto;
       display:block;
       cursor: pointer;
@@ -37,9 +37,6 @@
       opacity: 0.8;
     }
     .container {
-    /*  margin-right: 45%;
-      margin-bottom: 10%;
-      margin-top: 13%; */
       border: 3px solid lightgray;
       background-color: white;
       height: 70%;
@@ -49,15 +46,17 @@
       display:grid;
       grid-template-comlumns: auto;
       grid-gap: 8px;
-      background-color: white;
-      height: 70%;
+      background-color: lightgray;
+      height: 85%;
       width: 38%;
-      border: 3px solid lightgray;
+      border: 3px solid darkgray;
+      margin: 5% 0% 0% 31%;
     }
 
     .textarea {
       margin-left:19%;
-      margin-top: 17%;
+      margin-top: 15%;
+      border: 1px solid black;
     }
     input[type=text], input[type=password] {
       width: 100%;
@@ -89,37 +88,47 @@
   <!-- Signup Info Boxes -->
   <div class='grid-container'>
 
-    <p style='margin:auto; display:block; padding-top: 4%'>
-      Enter your user information below. All fields are required.
+    <p style='margin:auto; display:block; padding-top: 4%;'>
+      <b>Enter your user information below. All fields are required.</b>
     </p>
 
     <div style='margin:auto; display:block; padding-top:1%'>
+      <label for='name'><b>Full Name</b></label><br>
       <input type = "text"
                id = "name"
+               style = "border: 2px solid darkgray"
                value = "Full Name" />
     </div>
 
     <div style='margin:auto; display:block;'>
+      <label for='email'><b>Email Address</b></label><br>
         <input type = "text"
                 id = "email"
+                style = "border: 2px solid darkgray"
                 value = "Email" />
     </div>
 
     <div style='margin:auto; display:block;'>
+      <label for='pnum'><b>Phone Number</b></label><br>
         <input type = "text"
                 id = "pnum"
+                style = "border: 2px solid darkgray"
                 value = "Phone Number" />
     </div>
 
     <div style='margin:auto; display:block;'>
+      <label for='pw'><b>Password</b></label><br>
         <input type = "password"
                 id = "pw"
+                style = "border: 2px solid darkgray;"
                 value = "Password" />
     </div>
 
     <div style='margin:auto; display:block;'>
+      <label for='conpw'><b>Confirm Password</b></label><br>
         <input type = "password"
                 id = "conpw"
+                style = "border: 2px solid darkgray"
                 value = "Password" />
     </div>
 

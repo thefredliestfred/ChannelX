@@ -7,12 +7,8 @@
   <title>ChannelX</title>
   <link rel="stylesheet" href="mainMenu.css">
   <style>
-    body, html {
-      font-family: Trebuchet MS;
-      height:100%;
-      margin: 0;
-    }
-    .button {
+    body, html {font-family: Trebuchet MS; height:100%; margin: 0;}
+    button {
       background-color: lightblue;
       color: black;
       height: 50px;
@@ -21,23 +17,22 @@
       cursor: pointer;
       display:block;
       font-size: 16px;
-      margin-bottom: 15%
+      margin-bottom: 15px;
     }
     button:hover {opacity: 0.8;}
     .texthalf {width: 50%; float:left; text-align:center;}
     .boxhalf {width: 50%; float:right; flex: 1;}
     .container {
-      margin: 15%;
+      margin: 10% 0% 0% 25%;
       float: center;
       border: 3px solid gray;
-      background-color: white;
-      min-width: 200px;
-      min-height: 300px;
-      max-height: 40%;
+      background-color: lightgray;
+      min-width: 225px;
+      min-height: 350px;
+      max-height: 50%;
       max-width: 50%;*/
     }
-    .grid-container {display:grid; grid-template-comlumns: auto; grid-gap: 8px;}
-    .textarea {margin-left:19%; margin-top: 17%;}
+    .textarea {margin:10%;}
     input[type=text], input[type=password] {
       width: 75%;
       padding: 12px 20px;
@@ -63,26 +58,26 @@
     <li><a href="signup.html">Sign Up</a></li>
   </ul>
 
-  <div class='texthalf'>
-    <h1 style= "font-size:60px; color:white; padding-top:15%;">
-      ChannelX
-    </h1>
-    <h3 style= "color:white; margin:10% 20% 0% 20%">
-      ChannelX is a personalized messaging app<br>built to protect your privacy and your free time.
-    </h3>
-  </div>
+  <div class="container">
+    <div class='texthalf'>
+      <h1> ChannelX </h1>
+      <h3>
+        ChannelX is a personalized messaging app<br>
+        built to protect your privacy and your free time.
+      </h3>
+    </div>
 
-  <div class='boxhalf'>
-    <div class = 'container'>
+    <div class='boxhalf'>
       <div class = 'textarea'>
           <label for="email"><b>Email Address</b></label><br>
-          <input type="text" placeholder="Enter Email" name="uname" required>
-          <br>
+          <input type="text" placeholder="Enter Email" name="uname" required><br>
           <label for="psw"><b>Password</b></label><br>
           <input type="password" placeholder="Enter Password" name="psw" required>
           <br><br>
-          <button class ='button';type="submit">Login</button>
-    </div>
+          <button type="submit">Login</button>
+          <label for="noAccount">No account?</label>
+          <a href="signup.html">Create one here!</a>
+      </div>
     </div>
   </div>
 

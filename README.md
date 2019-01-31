@@ -1,4 +1,4 @@
-# ChannelX - 1/31/19
+# ChannelX - Phase 1 (1/31/19)
 
 Attached are all of the html files that create the ChannelX website.
 

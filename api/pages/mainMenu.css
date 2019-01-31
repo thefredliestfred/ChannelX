@@ -4,4 +4,6 @@ li {display: inline; float: left;}
 li a {color: white; display: block; text-align: center; padding: 15px;}
 li a:hover:not(.active) {background-color: #4d0000;}
 .active {background-color: #ff0000;}
-body {background-image: url(../objects/blackboard.jpg);}
+body {background-image: url(../objects/messages.jpeg);}
+
+/* Other background option url(../objects/blackboard.jpg)

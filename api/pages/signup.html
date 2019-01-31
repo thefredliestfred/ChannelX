@@ -24,7 +24,7 @@
     .button {
       background-color: lightblue;
       color: black;
-      height: 70%;
+      height: 40px;
       margin-bottom: 3%;
       width: 40%;
       border: 2px solid gray;
@@ -36,18 +36,12 @@
     button:hover {
       opacity: 0.8;
     }
-    .container {
-      border: 3px solid lightgray;
-      background-color: white;
-      height: 70%;
-      width: 50%;
-    }
     .grid-container {
       display:grid;
       grid-template-comlumns: auto;
       grid-gap: 8px;
       background-color: lightgray;
-      height: 85%;
+      height: 55%;
       width: 38%;
       border: 3px solid darkgray;
       margin: 5% 0% 0% 31%;
@@ -88,11 +82,11 @@
   <!-- Signup Info Boxes -->
   <div class='grid-container'>
 
-    <p style='margin:auto; display:block; padding-top: 4%;'>
+    <p style='margin:auto; display:block; padding-top: 1%;'>
       <b>Enter your user information below. All fields are required.</b>
     </p>
 
-    <div style='margin:auto; display:block; padding-top:1%'>
+    <div style='margin:auto; display:block;'>
       <label for='name'><b>Full Name</b></label><br>
       <input type = "text"
                id = "name"
@@ -124,9 +118,11 @@
     <div style='margin:auto; display:block;'>
       <label for='conpw'><b>Confirm Password</b></label><br>
         <input type = "password"
-                id = "conpw"cript>
+                id = "conpw"
                 value = "Password" />
     </div>
+    <a href="thank-you.html"><button class='button' style='font-size:17px' id ='logInBtn'>Sign Up</button></a>
+
   </div>
 </div>
 

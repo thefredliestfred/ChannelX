@@ -4,20 +4,39 @@
 
 <!--Header and Title for pages-->
 <head>
+  <meta name='viewport' content='device-width, initial-scale=1'>
   <title>ChannelX</title>
   <!--File for Top Navigation formating-->
   <link rel="stylesheet" href="mainMenu.css">
   <style>
-    body { font-family: Arial, Helvetica, sans-serif;}
-    .button {background-color: lightblue; color: black; height: 50px}
-    br {padding:10px}
-    tr:nth-child(even) {background-color: #D6DBDF}
+    body, html {
+      font-family: Trebuchet MS;
+      height:100%;
+      margin: 0;
+    }
+    .button {
+      background-color: lightblue;
+      color: black;
+      height: 50px;
+      width: 60%;
+      border: 1px solid black;
+      cursor: pointer;
+      display:block;
+      font-size: 16px;
+    }
+    br {
+      padding:10px
+    }
+    tr:nth-child(even) {
+      background-color: #D6DBDF
+    }
   </style>
 </head>
 
 <!--All the stuff you see-->
 <body>
 
+  <!--Header-->
   <ul>
     <li><a href="mainhub.html">Home</a></li>
     <li><a href="userProfile.html">Profile</a></li>
@@ -26,16 +45,16 @@
     <li><a href="createChannel.html">Create Channel</a></li>
     <li><a href="findNewChannel.html">Find Channel</a></li>
     <li><a href="newMessage.html">New Message</a></li>
-    <li><a href=href="ticketRequest.html">Contact Us</a></li>
+    <li><a href="ticketRequest.html">Contact Us</a></li>
+    <li><a href="signup.html">Sign Up</a></li>
   </ul>
 
-  <!--Header-->
   <h1 style="text-align:center;font-size:60px">ChannelX</h1>
 
   <!--Channel information & Schedule-->
-  <section style="float:left; text-align:center; width:35%; padding-left:10%">
-    <h2>Channel Information</h2>
+  <section style="float:left; text-align:center; width:35%; padding-left:10%; margin-bottom: 5%">
     <div style="text-align:left;padding-left:10%; border: 1px solid black; background-color: lightgray">
+      <h2 style="text-align: center">Channel Information</h2>
       <p >Channel Name: &lt;name&gt;</p>
       <p>Channel Type: &lt;Email or Text&gt;</p>
       <p>Your Alias: &lt;Unique Alias&gt;</p>
@@ -50,7 +69,11 @@
         </div>
       </section>
       <p style="margin:auto; width:200px; padding:10px">
-          <button class="button" id="settingBtn">Channel Settings</button>
+          <button
+              class="button"
+              style='margin: 1% 15% 1% 0%; width: 80%'
+              id="settingBtn">Channel Settings
+          </button>
       </p>
       <script>
         var btn = document.getElementById('settingBtn');
@@ -61,8 +84,8 @@
 
   <!--Draft List-->
   <section style="float:right; text-align:center; width:35%; padding-right:10%">
-    <h2>Drift List</h2>
     <div style="border: 1px solid black; background-color:lightgray">
+      <h2 style="text-align: center">Draft List</h2>
       <section style="padding:5%">
         <div style="border: 1px solid black; background-color:white">
           <table style="width:100%; text-align:left">
@@ -81,8 +104,16 @@
         </div>
       </section>
       <p>
-        <button class="button" id="delbtn">Delete Draft</button>
-        <button class="button" id="canbtn">Cancel</button>
+        <button
+           class="button"
+           style='margin: 1% 20% 2% 20%'
+           id="delbtn">Delete Draft
+        </button>
+        <button
+           class="button"
+           style='margin: 1% 20% 1% 20%'
+           id="canbtn">Cancel
+        </button>
       </p>
     </div>
   </section>

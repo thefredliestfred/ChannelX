@@ -3,27 +3,71 @@
 
 <!-- Header and Title -->
 <head>
+  <meta name='viewport' content='device-width, initial-scale=1'>
   <title>ChannelX</title>
   <!--File for Top Navigation formating-->
   <link rel="stylesheet" href="mainMenu.css">
   <style>
-    body { font-family: Arial, Helvetica, sans-serif;}
-    .button {background-color: lightblue; color: black; height: 45px; width: 75px;
-      margin: auto; display:block;
-
+    body, html {
+      font-family: Arial, Helvetica, sans-serif;
+      height:100%;
+      margin: 0;
+    }
+    .bg {
+      /* Image to be changed later */
+      background-image: url(../objects/message2.jpeg);
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display:flex;
+    }
+    .button {
+      background-color: lightblue;
+      color: black;
+      height: 40px;
+      margin-bottom: 3%;
+      width: 40%;
+      border: 2px solid gray;
+      margin: auto;
+      display:block;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      opacity: 0.8;
     }
     .grid-container {
-      display:grid; grid-template-comlumns: auto; grid-gap: 8px;
+      display:grid;
+      grid-template-comlumns: auto;
+      grid-gap: 8px;
+      background-color: lightgray;
+      height: 55%;
+      width: 38%;
+      border: 3px solid darkgray;
+      margin: 5% 0% 0% 31%;
     }
 
-    textarea {width:99%; height: 150px; background-color: #f8f8f8;
-      font-size: 16px; resize: none;
+    .textarea {
+      margin-left:19%;
+      margin-top: 15%;
+      border: 1px solid black;
+    }
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
     }
   </style>
 </head>
 
     <!--- Items on page -->
 <body>
+
+  <h1 style="text-align:center;font-size:60px">ChannelX</h1>
 
   <ul>
     <li><a href="mainhub.html">Home</a></li>
@@ -34,51 +78,56 @@
     <li><a href="findNewChannel.html">Find Channel</a></li>
     <li><a href="newMessage.html">New Message</a></li>
     <li><a href="ticketRequest.html">Contact Us</a></li>
+    <li><a href="signup.html">Sign Up</a></li>
   </ul>
 
-  <h1 style="text-align:center;font-size:60px">ChannelX</h1>
-
+  <div class = 'bg'>
   <!-- Signup Info Boxes -->
   <div class='grid-container'>
 
-    <p style='margin:auto; display:block; padding-top:5%'>
-      Enter your user information below. All fields are required.
+    <p style='margin:auto; display:block; padding-top: 1%;'>
+      <b>Enter your user information below. All fields are required.</b>
     </p>
 
-    <div style='margin:auto; display:block; padding-top:1%'>
+    <div style='margin:auto; display:block;'>
+      <label for='name'><b>Full Name</b></label><br>
       <input type = "text"
                id = "name"
-               placeholder = "Full Name" />
-    </div>
+               style = "border: 2px solid darkgray"
+               value = "Full Name"    </div>
 
     <div style='margin:auto; display:block;'>
+      <label for='email'><b>Email Address</b></label><br>
         <input type = "text"
                 id = "email"
-                placeholder = "Email" />
-    </div>
+                style = "border: 2px solid darkgray"
+                value = "Email Address"   </div>
 
     <div style='margin:auto; display:block;'>
+      <label for='pnum'><b>Phone Number</b></label><br>
         <input type = "text"
                 id = "pnum"
-                placeholder = "Phone Number" />
-    </div>
+                style = "border: 2px solid darkgray"
+                value = "Phone Number"    </div>
 
     <div style='margin:auto; display:block;'>
-        <input type = "text"
+      <label for='pw'><b>Password</b></label><br>
+        <input type = "password"
                 id = "pw"
-                placeholder = "Password" />
+                style = "border: 2px solid darkgray;"
+                value = "Password" />
     </div>
 
     <div style='margin:auto; display:block;'>
-        <input type = "text"
+      <label for='conpw'><b>Confirm Password</b></label><br>
+        <input type = "password"
                 id = "conpw"
-                placeholder = "Confirm Password" />
+                value = "Password" />
     </div>
+    <a href="thank-you.html"><button class='button' style='font-size:17px' id ='logInBtn'>Sign Up</button></a>
 
-    <div class='item3' style='padding-top:1%'>
-      <a href="thank-you.html"><button class='button' style='font-size:15px; border: 1px solid black' id ='signUpBtn'>Sign Up</button></a>
-    </div>
   </div>
+</div>
 
 </body>
 </html>

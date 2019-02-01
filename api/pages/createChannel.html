@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-
 <!--Header and Title for pages-->
 <head>
   <title>ChannelX</title>
+  <!--File for Top Navigation formating-->
+  <link rel="stylesheet" href="mainMenu.css">
   <style>
-    body { font-family: Arial, Helvetica, sans-serif;}
-    .button {background-color: lightblue; color: black; height: 50px}
-    p {padding-top: 5px}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .button {
+      background-color: lightblue;
+      color: black;
+      height: 50px;
+      border: 2px solid darkgray;
+    }
+    .container {
+      height: 50%;
+      width: 60%;
+      background-color: lightgray;
+      border: 3px solid gray;
+      margin: 5% 20% 5% 20%;
+    }
+    p {
+      padding-top: 5px
+    }
   </style>
 </head>
 
 <!--All the stuff you see-->
 <body>
 
+  <ul>
+    <li><a href="mainhub.html">Home</a></li>
+    <li><a href="userProfile.html">Profile</a></li>
+    <li><a href="channelSettings.html">Channel Settings</a></li>
+    <li><a href="infoChannel.html">Channel Information</a></li>
+    <li><a class="active" href="createChannel.html">Create Channel</a></li>
+    <li><a href="findNewChannel.html">Find Channel</a></li>
+    <li><a href="newMessage.html">New Message</a></li>
+    <li><a href="submitTicket.html">Contact Us</a></li>
+  </ul>
+
+  <div class='container'>
   <!--Header-->
-  <a href="homeChannelX"; style="float:left; width:10%"> &lt; Return</a>
-  <h1 style="text-align:center;font-size:60px;">ChannelX</h1>
 
   <!--Channel name with form box -->
   <form action=" URL " class="add" method="POST">
@@ -58,7 +85,7 @@
 
   <!--Schedule with date box and calandars and Quiet Hours with From/To pull down menus-->
   <style>
-    section {float: left; width: 25%; background-color: #f1f1f1; height: 125px;padding-left: 20%; background-color: white}
+    section {float: left; width: 25%; height: 125px;padding-left: 20%;}
   </style>
   <section class="schedule">
     <div class="form-group"; style="text-align:center">
@@ -72,7 +99,7 @@
 
   <!--Schedule with date box and calandars and Quiet Hours with From/To pull down menus-->
   <style>
-    article {float: right; width: 35%; background-color: #f1f1f1; height: 125px;padding-right: 20%; background-color: white}
+    article {float: right; width: 35%; height: 125px;padding-right: 20%; }
   </style>
   <article class="quietHours">
     <div class="form-group"; style="text-align:center">
@@ -112,7 +139,7 @@
     <form action=" URL " class="add" method="POST">
       <div class="form-group"; style="text-align:center; padding:150px">
         <p>
-          <button class="button" id="newChanBtn"> Create New Channel </button>
+          <a href="mainhub.html"><button class="button" id="newChanBtn">Create New Channel<br>(Not Active)</button></a>
         </p>
       </div>
       <script>
@@ -121,7 +148,7 @@
       </script>
     </form>
   </div>
-
+</div>
 </body>
 
 </html>

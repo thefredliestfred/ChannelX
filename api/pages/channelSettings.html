@@ -85,6 +85,9 @@
       background-size: cover;
       display:flex;
     }
+    button:hover {
+      opacity: 0.8;
+    }
   </style>
 </head>
 
@@ -94,7 +97,7 @@
   <ul>
     <li><a href="mainhub.html">Home</a></li>
     <li><a href="userProfile.html">Profile</a></li>
-    <li><a href="channelSettings.html">Channel Settings</a></li>
+    <li><a class="active" href="channelSettings.html">Channel Settings</a></li>
     <li><a href="infoChannel.html">Channel Information</a></li>
     <li><a href="createChannel.html">Create Channel</a></li>
     <li><a href="findNewChannel.html">Find Channel</a></li>
@@ -103,12 +106,12 @@
     <li><a href="signup.html">Sign Up</a></li>
   </ul>
 
-  <h1 style="text-align:center;font-size:60px">ChannelX</h1>
 
   <!--Channel information & Schedule-->
   <section style="float:left; text-align:center; width:35%; padding-left:10%">
-    <h2>Channel Information</h2>
+
     <div style="text-align:left;padding-left:10%; border: 1px solid black; background-color: lightgray">
+      <h2 style="text-align: center">Channel Information</h2>
       <p>
         <label class="cols-sm-2 control-label" for="channelName">Channel Name: </label>
         <input class="form-control" id="createChannel" name="createChannel" type="text">
@@ -140,8 +143,9 @@
 
   <!--Contact list-->
   <section style="float:right; text-align:center; width:35%; padding-right:10%">
-    <h2>Contact List</h2>
+
     <div style="text-align:center; border: 1px solid black; background-color: lightgray">
+      <h2 style="text-align: center">Contact List</h2>
       <div class="search-container" style="padding:10px">
         <form action="/action_page.php">
           <input type="text" placeholder="Search.." name="search">

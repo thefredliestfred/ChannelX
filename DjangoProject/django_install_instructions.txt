@@ -24,6 +24,8 @@ $ django-admin startproject mysite (be in desired location)
 
 Go into project
 
+$ pip install django-crispy-forms
+
 If vs code is installed, '$ code .' will open code with explorer
 	Install python extention for code.
 

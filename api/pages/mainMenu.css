@@ -1,9 +1,12 @@
-ul{position: -webkit-sticky; /* Safari */ position: sticky; top: 0;
-  overflow: hidden; background-color: #800000}
-li {display: inline; float: left;}
-li a {color: white; display: block; text-align: center; padding: 15px;}
-li a:hover:not(.active) {background-color: #4d0000;}
+ul{overflow:hidden; background-color: #800000}
+li {display:inline-flex; flex-wrap:nowrap; text-align:center;}
+li a {color:white; text-align:center; padding: 15px;}
+li a:hover:not(.active) {background-color:#4d0000;}
 .active {background-color: #ff0000;}
-body {background-image: url(../objects/messages.jpeg);}
-
-/* Other background option url(../objects/blackboard.jpg)
+/*Headers*/
+h1 {color:#800000; font-size: 60px;}
+h2 {color:#800000}
+h3 {color:#800000}
+/*Body*/
+body {background-image: url(../objects/message2.jpeg);}
+a {padding: 15px;}

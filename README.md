@@ -1,3 +1,8 @@
+# ChannelX
+
+December 11, 2018
+HTML pages have been designed and avalible links have been made between pages.
+
 # ChannelX - Phase 1 (1/31/19)
 
 Attached are all of the html files that create the ChannelX website.

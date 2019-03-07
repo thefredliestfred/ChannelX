@@ -1,61 +1,49 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from channelx import settings
-from .models import Chat
+#from .models import Chat
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from .forms import CreateChannelForm
-from .models import Channel
 
-def homepage(request):
+def home(request):
     return render(request, 'main/home.html', {"title": "Home"})
 
-def aboutpage(request):
+def about(request):
     return render(request, 'main/about.html', {"title": "About"})
 
-def createchannelpage(request):
+def createchannel(request):
     return render(request, 'main/createchannel.html', {"title": "Create Channel"})
 
-def findchannelpage(request):
+def findchannel(request):
     return render(request, 'main/findchannel.html', {"title": "Find Channel"})
 
-def channelinfopage(request):
+def channelinfo(request):
     return render(request, 'main/channelinfo.html', {"title": "Channel Info"})
 
-def channelsettingspage(request):
+def channelsettings(request):
     return render(request, 'main/channelsettings.html', {"title": "Channel Settings"})
 
-def userprofilepage(request):
+def userprofile(request):
     return render(request, 'main/userprofile.html', {"title": "User Profile"})
 
-def newmessagepage(request):
+def newmessage(request):
     return render(request, 'main/newmessage.html', {"title": "New Message"})
 
 def draftpage(request):
     return render(request, 'main/draftpage.html', {"title": "Draft Page"})
 
-def Post(request):
-    '''
-        This view needs to be edited slightly once it is determined what
-            the table values are
-    '''
-    if request.method == "POST":
-        msg = request.POST.get('msgbox', None)
-        c = Chat(user=request.user, message=msg)
-        if msg != '':
-            c.save()
-        return JsonResponse({'msg': msg, 'user': c.user.alias})
-    else:
-        return HttpResponse('Request must be POST.')
-
-def Messages(request):
-    c = Chat.objects.all()
-    return render(request, 'main/channelinfo.html', {'chat': c})
-
-def createchannel(request):
-    if request.method == "POST":
-        form = CreateChannelForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-    else:
-        form = CreateChannelForm()
-    return render(request, "main/createChannel.html", {"form": form})
+#def Post(request):
+#    '''
+#        This view needs to be edited slightly once it is determined what
+#            the table values are
+#    '''
+#    if request.method == "POST":
+#        msg = request.POST.get('msgbox', None)
+#        c = Chat(user=request.user, message=msg)
+#        if msg != '':
+#            c.save()
+#        return JsonResponse({'msg': msg, 'user': c.user.alias})
+#    else:
+#        return HttpResponse('Request must be POST.')
+#
+#def Messages(request):
+#    c = Chat.objects.all()
+#    return render(request, 'main/channelinfo.html', {'chat': c})

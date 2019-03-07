@@ -1,84 +1,35 @@
 {% extends "main/base.html" %}
 {% block content %}
-{% load static %}
 <!--Header and Title for pages-->
 <head>
   <title>ChannelX</title>
 <!--Comment/Uncomment line for search icon-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!--File for Top Navigation formating-->
-  <link rel="stylesheet" href="{% static 'main.css' %}">
-  <link rel="stylesheet" href="{% static 'chat.css' %}">
+  <link rel="stylesheet" href="mainMenu.css">
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    .button {
-      background-color: lightblue;
-      color: black;
-      height: 50px
-    }
-    br {
-      padding:10px
-    }
-    .topnav {
-      overflow: hidden;
-      background-color: #e9e9e9;
-    }
-    .topnav a {
-      float: left;
-      display: block;
-      color: black;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 17px;
-    }
-    .topnav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-    .topnav a.active {
-      background-color: #2196F3;
-      color: white;
-    }
-    .topnav .search-container {
-      float: right;
-    }
-    .topnav input[type=text] {
-      padding:6px;
-      margin-top:8px;
-      font-size:17px;
-      border:none;
-    }
-    .topnav .search-container button {
-      float:right;
-      padding: 6px 10px;
-      margin-top:8px;
-      margin-right: 16px;
-      background: #ddd;
-      font-size: 17px;
-      border: none;
-      cursor: pointer;
-    }
-    .topnav .search-container button:hover {
-      background: #ccc;
-    }
-    .table-wrapper-scroll-y {
-      display: block;
-      max-height: 100px;
-      overflow-y: auto;
-    }
-    tr:nth-child(even) {
-      background-color: #D6DBDF
-    }
+    body { font-family: Arial, Helvetica, sans-serif;}
+    .button {background-color: lightblue; color: black; height: 50px}
+    br {padding:10px}
+    .topnav {overflow: hidden; background-color: #e9e9e9;}
+    .topnav a {float: left; display: block; color: black; text-align: center;
+      padding: 14px 16px; text-decoration: none; font-size: 17px;}
+    .topnav a:hover {background-color: #ddd; color: black;}
+    .topnav a.active {background-color: #2196F3; color: white;}
+    .topnav .search-container {float: right;}
+    .topnav input[type=text] {padding:6px; margin-top:8px; font-size:17px; border:none;}
+    .topnav .search-container button {float:right; padding: 6px 10px; margin-top:8px;
+      margin-right: 16px; background: #ddd; font-size: 17px; border: none; cursor: pointer;}
+    .topnav .search-container button:hover {background: #ccc;}
+    .table-wrapper-scroll-y {display: block; max-height: 100px; overflow-y: auto;}
+    tr:nth-child(even) {background-color: #D6DBDF}
   </style>
 </head>
 
 <!--All the stuff you see-->
 <body>
   <!--Channel information & Schedule-->
-  <section style="float:left; text-align:center; width:40%; padding-left:10%">
+  <section style="float:left; text-align:center; width:35%; padding-left:10%">
     <div style="text-align:left; padding-left:10%; border: 1px solid black; background-color: lightgray">
       <h2 style="padding-left:15%">Channel Information</h2>
       <p >Channel Name: &lt;name&gt;</p>
@@ -100,47 +51,63 @@
     </div>
   </section>
 
-  <!--Inbox-->
-  <section style="float:right; text-align:center; width:50%; padding:10% 10% 0% 0%">
-    <div style="border: 1px solid black; background-color:lightgray; padding-bottom: 60%">
-      <h2>Messages</h2>
-      <section style="padding:5%; height: 50%">
-        <ul id="msg-list" class="list-group">
-
-                {% for obj in chat %}
-                        {% if obj.user == request.user %}
-                          <li class="text-right list-group-item">{{ obj.message }}</li>
-                        {%else%}
-                          <li class="text-left list-group-item">{{ obj.message }}</li>
-                        {%endif%}
-                        {% empty %}
-                          <li class="text-right list-group-item">No messages yet!</li>
-                {% endfor %}
-                <script>
-                    var chatlist = document.getElementById('msg-list-div');
-                    chatlist.scrollTop = chatlist.scrollHeight;
-                </script>
-        </ul>
-      <form id="chat-form" method="post" action="/post/">
-        <div id="chat-bottom" class="input-group">
-            <input type="text" id="chat-msg" name="chat-msg" class="form-control"/>
-            <span class="input-group-btn">
-            <div>
-                <input class="btn btn-primary" id="send" type="submit" value="Send"/>
-            </div>
-            </span>
+  <!--Contact list-->
+  <section style="float:right; text-align:center; width:35%; padding-right:10%">
+    <div style="text-align:center; border: 1px solid black; background-color: lightgray">
+      <h2>Contact List</h2>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+      <section style="padding:5%">
+        <div class="table-wrapper-scroll-y" style="border: 1px solid black; background-color:white">
+          <table style="width:100%; text-align:left">
+            <tbody>
+              <tr> <td>User Alias 1</td> </tr>
+              <tr> <td>User Alias 2</td> </tr>
+              <tr> <td>User Alias 3</td> </tr>
+              <tr> <td>User Alias 4</td> </tr>
+              <tr> <td>User Alias 5</td> </tr>
+              <tr> <td>User Alias 6</td> </tr>
+              <tr> <td>User Alias 7</td> </tr>
+              <tr> <td>User Alias 8</td> </tr>
+              <tr> <td>User Alias 9</td> </tr>
+            </tbody>
+          </table>
         </div>
-      </form>
-
       </section>
     </div>
   </section>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!--Inbox-->
+  <section style="float:right; text-align:center; width:35%; padding:10% 10% 0% 0%">
+    <div style="border: 1px solid black; background-color:lightgray">
+      <h2>Inbox</h2>
+      <section style="padding:5%">
+        <div class="table-wrapper-scroll-y" style="border: 1px solid black; background-color:white">
+          <table style="width:100%; text-align:left">
+            <tbody>
+              <tr> <td>Message 1</td> </tr>
+              <tr> <td>Message 2</td> </tr>
+              <tr> <td>Message 3</td> </tr>
+              <tr> <td>Message 4</td> </tr>
+              <tr> <td>Message 5</td> </tr>
+              <tr> <td>Message 6</td> </tr>
+              <tr> <td>Message 7</td> </tr>
+              <tr> <td>Message 8</td> </tr>
+              <tr> <td>Message 9</td> </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <p>
+        <a href="newMessage.html"><button class="button">New Message</button></a>
+        <a href="draftPage.html"><button class="button">Drafts</button></a>
+      </p>
+    </div>
+  </section>
 
 </body>
 {% endblock content %}

@@ -13,4 +13,8 @@ urlpatterns = [
     path('userprofile/', views.userprofile, name='main-userprofile'),
     path('newmessage', views.newmessage, name='main-newmessage'),
     path('draftpage', views.draftpage, name='main-draftpage'),
+    # Need to add paths for Posting a message and viewing previous messages
+    # These two paths can be edited if needed
+    #path('post/', views.Post, name='post'),
+    #path('messageLog', views.Messages, name='messageLog'),
 ]

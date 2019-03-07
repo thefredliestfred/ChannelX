@@ -6,6 +6,7 @@
   <title>ChannelX</title>
   <!--File for Top Navigation formating-->
   <link rel="stylesheet" href="mainMenu.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -32,35 +33,31 @@
 <!--All the stuff you see-->
 <body>
 
-  <ul>
-    <li><a href="mainhub.html">Home</a></li>
-    <li><a href="userProfile.html">Profile</a></li>
-    <li><a href="channelSettings.html">Channel Settings</a></li>
-    <li><a href="infoChannel.html">Channel Information</a></li>
-    <li><a class="active" href="createChannel.html">Create Channel</a></li>
-    <li><a href="findNewChannel.html">Find Channel</a></li>
-    <li><a href="newMessage.html">New Message</a></li>
-    <li><a href="submitTicket.html">Contact Us</a></li>
+  <ul class="nav">
+    <li class="nav-item"><a href="mainhub.html">Home</a></li>
+    <li class="nav-item"><a href="userProfile.html">Profile</a></li>
+    <li class="nav-item"><a href="channelSettings.html">Channel Settings</a></li>
+    <li class="nav-item"><a href="infoChannel.html">Channel Information</a></li>
+    <li class="nav-item"><a class="active" href="createChannel.html">Create Channel</a></li>
+    <li class="nav-item"><a href="findNewChannel.html">Find Channel</a></li>
+    <li class="nav-item"><a href="newMessage.html">New Message</a></li>
+    <li class="nav-item"><a href="submitTicket.html">Contact Us</a></li>
   </ul>
 
   <!--Header-->
   <div class='container'>
 
   <!--Channel name with form box -->
-  <form action=" URL " class="add" method="POST">
+  <form action=" URL " >
     <div class="form-group"; style="text-align:center">
-      <p>
-        <label class="cols-sm-2 control-label" for="channelName">Channel Name: </label>
+        <label for="channelName">Channel Name: </label>
         <input class="form-control" id="createChannel" name="createChannel" type="text">
-      </p>
     </div>
-  </form>
 
   <!--Channel Type with drop down menu-->
-  <form action=" URL " class="add" method="post">
+  <form action=" URL ">
     <div class="form-group"; style="text-align:center">
-      <p>
-        <label class="cols-sm-2 control-label" for="channelName">Channel Type: </label>
+        <label for="channelName">Channel Type: </label>
         <select>
           <option selected="selected">Email</option>
           <option>Text</option>
@@ -72,10 +69,8 @@
   <!--Generated alias with button to create new alias-->
   <form action="" class="add" method="POST">
     <div class="form-group"; style="text-align:center">
-      <p>
         <label for="generateAlias">Generated Alias: &lt;ALIAS&gt;</label>
         <button class="button" id="aliasBtn"> Generate Another Alias </button>
-      </p>
     </div>
     <script>
       var btn = document.getElementById('aliasBtn');

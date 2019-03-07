@@ -2,15 +2,14 @@
 {% block content %}
 <!--Header and Title for pages-->
 <head>
-  <title>ChannelX</title>
 <!--Comment/Uncomment line for search icon-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!--File for Top Navigation formating-->
   <link rel="stylesheet" href="mainMenu.css">
   <style>
-    body { font-family: Arial, Helvetica, sans-serif;}
+    body {font-family: Arial, Helvetica, sans-serif;}
+    h2 {text-align:center}
     .button {background-color: lightblue; color: black; height: 50px}
-    br {padding:10px}
     .topnav {overflow: hidden; background-color: #e9e9e9;}
     .topnav a {float: left; display: block; color: black; text-align: center;
       padding: 14px 16px; text-decoration: none; font-size: 17px;}
@@ -29,15 +28,17 @@
 <!--All the stuff you see-->
 <body>
   <!--Channel information & Schedule-->
-  <section style="float:left; text-align:center; width:35%; padding-left:10%">
-    <div style="text-align:left; padding-left:10%; border: 1px solid black; background-color: lightgray">
-      <h2 style="padding-left:15%">Channel Information</h2>
-      <p >Channel Name: &lt;name&gt;</p>
-      <p>Channel Type: &lt;Email or Text&gt;</p>
-      <p>Your Alias: &lt;Unique Alias&gt;</p>
-      <section style="text-align:center; width:90%; padding-bottom:10px">
+  <section style="margin:10% 0 0 10%; text-align:center; width:80%">
+    <div style="text-align:center; padding-left:10%; border: 1px solid black; background-color: lightgray">
+      <h2>Channel Information</h2>
+      <section style="float:left">
+        <p >Channel Name: &lt;name&gt;</p>
+        <p>Channel Type: &lt;Email or Text&gt;</p>
+        <p>Your Alias: &lt;Unique Alias&gt;</p>
+      </section>
+      <section style="float:right; text-align:center; width:90%; padding-bottom:10px">
         <br>Schedule:</br>
-        <div class="chanSch"; style="text-align:center; border: 1px solid black; background-color:white">
+        <div style="text-align:center; border: 1px solid black; background-color:white">
           <p>This channel will be open:</p>
           <p>From:&lt;start date&gt; To:&lt;end date&gt;</p>
           <br>
@@ -49,10 +50,8 @@
           <a href="channelSettings.html"><button class="button">Channel Settings</button></a>
       </p>
     </div>
-  </section>
 
   <!--Contact list-->
-  <section style="float:right; text-align:center; width:35%; padding-right:10%">
     <div style="text-align:center; border: 1px solid black; background-color: lightgray">
       <h2>Contact List</h2>
       <div class="search-container">
@@ -79,10 +78,8 @@
         </div>
       </section>
     </div>
-  </section>
 
   <!--Inbox-->
-  <section style="float:right; text-align:center; width:35%; padding:10% 10% 0% 0%">
     <div style="border: 1px solid black; background-color:lightgray">
       <h2>Inbox</h2>
       <section style="padding:5%">

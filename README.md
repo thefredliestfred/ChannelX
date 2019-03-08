@@ -11,6 +11,8 @@ located in the DjangoProjects folder while running a virtual environment in the 
   To run the server, enter the command 'python manage.py runserver' in your virtual environment and the ChannelX
 application will run on localhost:8000
 
+  Chat functions are not working at this time.
+
 # ChannelX - Phase 1 (1/31/19)
 
 Attached are all of the html files that create the ChannelX website.

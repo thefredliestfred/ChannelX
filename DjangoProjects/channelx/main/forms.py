@@ -1,0 +1,7 @@
+from django import forms
+from main.models import Channel
+
+class CreateChannelForm(forms.Form):
+    class Meta:
+        model = Channel
+        fields = ['channel_name']

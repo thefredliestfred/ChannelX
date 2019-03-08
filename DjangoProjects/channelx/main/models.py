@@ -6,6 +6,6 @@ from django.db import models
 #    created = models.DateTimeField(auto_now_add=True)
 #    user = models.ForeignKey('User', on_delete=models.DO_NOTHING,)
 #    message = models.TextField()
-
+#
 #    def __unicode__(self):
 #        return self.message

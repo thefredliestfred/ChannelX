@@ -16,10 +16,12 @@ def findchannel(request):
     return render(request, 'main/findchannel.html', {"title": "Find Channel"})
 
 def channelinfo(request):
+
     return render(request, 'main/channelinfo.html', {"title": "Channel Info"})
 
 def channelsettings(request):
-    return render(request, 'main/channelsettings.html', {"title": "Channel Settings"})
+    c = Chat.objects.all()
+    return render(request, 'main/channelsettings.html', {"title": "Channel Settings", 'channelsettings': 'active', 'chat': c})
 
 def userprofile(request):
     return render(request, 'main/userprofile.html', {"title": "User Profile"})
@@ -40,7 +42,7 @@ def draftpage(request):
 #        c = Chat(user=request.user, message=msg)
 #        if msg != '':
 #            c.save()
-#        return JsonResponse({'msg': msg, 'user': c.user.alias})
+#        return JsonResponse({'msg': msg})
 #    else:
 #        return HttpResponse('Request must be POST.')
 #

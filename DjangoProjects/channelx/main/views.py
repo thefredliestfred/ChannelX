@@ -1,7 +1,4 @@
 from django.shortcuts import render
-from channelx import settings
-#from .models import Chat
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 
 def home(request):
     return render(request, 'main/home.html', {"title": "Home"})
@@ -49,3 +46,4 @@ def draftpage(request):
 #def Messages(request):
 #    c = Chat.objects.all()
 #    return render(request, 'main/channelinfo.html', {'chat': c})
+#    return render(request, 'main/draftpage.html', {"title": "Draft Page"})

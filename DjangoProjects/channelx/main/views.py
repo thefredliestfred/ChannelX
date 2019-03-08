@@ -17,8 +17,7 @@ def channelinfo(request):
     return render(request, 'main/channelinfo.html', {"title": "Channel Info"})
 
 def channelsettings(request):
-    c = Chat.objects.all()
-    return render(request, 'main/channelsettings.html', {"title": "Channel Settings", 'channelsettings': 'active', 'chat': c})
+    return render(request, 'main/channelsettings.html', {"title": "Channel Settings"})
 
 def userprofile(request):
     return render(request, 'main/userprofile.html', {"title": "User Profile"})

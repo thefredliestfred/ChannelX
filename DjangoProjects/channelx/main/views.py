@@ -35,3 +35,22 @@ def createchannel(request):
     else:
         form = CreateChannelForm()
     return render(request, "main/createChannel.html", {"form": form})
+    
+#def Post(request):
+#    '''
+#        This view needs to be edited slightly once it is determined what
+#            the table values are
+#    '''
+#    if request.method == "POST":
+#        msg = request.POST.get('msgbox', None)
+#        c = Chat(user=request.user, message=msg)
+#        if msg != '':
+#            c.save()
+#        return JsonResponse({'msg': msg})
+#    else:
+#        return HttpResponse('Request must be POST.')
+#
+#def Messages(request):
+#    c = Chat.objects.all()
+#    return render(request, 'main/channelinfo.html', {'chat': c})
+#    return render(request, 'main/draftpage.html', {"title": "Draft Page"})

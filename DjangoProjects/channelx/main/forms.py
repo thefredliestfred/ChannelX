@@ -1,12 +1,7 @@
-from .models import Channel
+from django import forms
+from main.models import Channel
 
-def createchannel(request):
-    if request.method == "POST":
-        form = CreateChannelForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-    else:
-        form = CreateChannelForm()
-    return render(request, "main/createChannel.html", {"form": form})
-
+class CreateChannelForm(forms.Form):
+    class Meta:
+        model = Channel
+        fields = ['channel_name']

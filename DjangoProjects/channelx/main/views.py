@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from main.forms import CreateChannelForm
-from .models import Channel
 
 def homepage(request):
     return render(request, 'main/home.html', {"title": "Home"})
@@ -8,33 +7,32 @@ def homepage(request):
 def aboutpage(request):
     return render(request, 'main/about.html', {"title": "About"})
 
-def createchannelpage(request):
-    return render(request, 'main/createchannel.html', {"title": "Create Channel"})
-
 def findchannelpage(request):
-    return render(request, 'main/findchannel.html', {"title": "Find Channel"})
+    return render(request, 'main/findChannel.html', {"title": "Find Channel"})
 
 def channelinfopage(request):
-    return render(request, 'main/channelinfo.html', {"title": "Channel Info"})
+    return render(request, 'main/channelInfo.html', {"title": "Channel Info"})
 
 def channelsettingspage(request):
-    return render(request, 'main/channelsettings.html', {"title": "Channel Settings"})
+    return render(request, 'main/channelSettings.html', {"title": "Channel Settings"})
 
 def userprofilepage(request):
-    return render(request, 'main/userprofile.html', {"title": "User Profile"})
+    return render(request, 'main/userProfile.html', {"title": "User Profile"})
 
 def newmessagepage(request):
-    return render(request, 'main/newmessage.html', {"title": "New Message"})
+    return render(request, 'main/newMessage.html', {"title": "New Message"})
 
-def createchannel(request):
-    if request.method == "POST":
+def createchannelpage(request):
+    if request.method == 'POST':
         form = CreateChannelForm(request.POST)
         if form.is_valid():
             form.save()
+            channelname = form.cleaned_data.get('channel_name')
+            #messages.success(request, f'{channelname} was created!')
             return redirect('/')
     else:
         form = CreateChannelForm()
-    return render(request, "main/createChannel.html", {"form": form})
+    return render(request, 'main/createChannel.html', {'form': form})
     
 #def Post(request):
 #    '''

@@ -23,15 +23,16 @@ def newmessagepage(request):
     return render(request, 'main/newMessage.html', {"title": "New Message"})
 
 def createchannelpage(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = CreateChannelForm(request.POST)
-        
         if form.is_valid():
             form.save()
+            channelname = form.cleaned_data.get('channel_name')
+            #messages.success(request, f'{channelname} was created!')
             return redirect('/')
     else:
         form = CreateChannelForm()
-    return render(request, "main/createChannel.html", {"form": form})
+    return render(request, 'main/createChannel.html', {'form': form})
     
 #def Post(request):
 #    '''

@@ -7,9 +7,9 @@
 
 <div class="container">
   <h2>Create a Channel</h2>
-  <form class="form-group" method="POST">
+  <form class="form-group" method="post" style="width:50%">
     {% csrf_token %}
-    {{ form }}
+    {{ form|crispy }}
     <button type="submit" class="btn btn-secondary">Create</button>
   </form>
 </div>

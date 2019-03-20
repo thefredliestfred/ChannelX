@@ -1,12 +1,13 @@
 {% extends "main/base.html" %}
 {% block content %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'main/home.css' %}">
 
 <div class="container">
   <h2>Create a Channel</h2>
-  <form class="form-group" method="post">
+  <form class="form-group" method="POST">
     {% csrf_token %}
     {{ form }}
     <button type="submit" class="btn btn-secondary">Create</button>

@@ -10,8 +10,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     {% if title %}
         <title>ChannelX - {{ title }}</title>
@@ -22,7 +23,7 @@
 
 <!--- Items on page -->
 <body>
-    <header class="site-header">
+   <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
                 <a class="navbar-brand mr-4" href="{% url 'main-home' %}">ChannelX</a>
@@ -31,18 +32,20 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{% url 'main-home' %}">Home</a>
                         <a class="nav-item nav-link" href="{% url 'main-about' %}">About</a>
+
                         <a class="nav-item nav-link" href="{% url 'main-channelsettings' %}">Channel Settings</a>
                         <a class="nav-item nav-link" href="{% url 'main-channelinfo' %}">Channel Information</a>
                         <a class="nav-item nav-link" href="{% url 'main-createchannel' %}">Create Channel</a>
                         <a class="nav-item nav-link" href="{% url 'main-findchannel' %}">Find Channel</a>
+
+                        <a class="nav-item nav-link" href="{% url 'main-ticketrequest' %}">Submit a Ticket</a>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="#">Login</a>
+                        <a class="nav-item nav-link" href="{% url 'main-userprofile' %}">Login</a>
                         <a class="nav-item nav-link" href="{% url 'users-register' %}">Register</a>
-                        {% if user.is_authenticated %} 
+                        {% if user.is_authenticated %}
                             <a class="nav-item nav-link" href="{% url 'main-userprofile' %}">Profile</a>
                         {% endif %}
                     </div>

@@ -19,8 +19,25 @@ def channelsettingspage(request):
 def userprofilepage(request):
     return render(request, 'main/userProfile.html', {"title": "User Profile"})
 
-def newmessagepage(request):
-    return render(request, 'main/newMessage.html', {"title": "New Message"})
+def loginpage(request):
+    if request.method == 'Post':
+        form = LogInForm(request.POST)
+        if form.is_valid():
+            form.save()
+            logInUser = form.cleaned_data.get('logIn_User')
+            return redirect('/')
+        else:
+            form = LogInForm()
+    return render(request, 'main/logIn.html', {"title": "Log In"})
+
+def thankyouregisterpage(request):
+    return render(request, 'main/thankYouReqister.html', {"title": "Thank You"})
+
+def ticketrecivedpage(request):
+    return render(request, 'main/ticketRecieved.html', {"title": "Ticket Sent"})
+
+def ticketrequestpage(request):
+    return render(request, 'main/ticketRequest.html', {"title": "Report an Issue"})
 
 def createchannelpage(request):
     if request.method == 'POST':
@@ -33,7 +50,7 @@ def createchannelpage(request):
     else:
         form = CreateChannelForm()
     return render(request, 'main/createChannel.html', {'form': form})
-    
+
 #def Post(request):
 #    '''
 #        This view needs to be edited slightly once it is determined what

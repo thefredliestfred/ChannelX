@@ -3,15 +3,17 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'main/home.css' %}">
-
-<div class="container">
-  <h2>Create a Channel</h2>
-  <form class="form-group" method="post" style="width:50%">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-secondary">Create</button>
-  </form>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-12" style="text-align:center; border: 1px solid black; background-color:#293132">
+      <h2>Create a Channel</h2>
+      <form class="form-group" method="post" style="color:white; width:100%; padding: 0 25% 0 25%;">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-secondary">Create</button>
+      </form>
+    </div>
+ </div>
 </div>
 
 {% endblock content %}

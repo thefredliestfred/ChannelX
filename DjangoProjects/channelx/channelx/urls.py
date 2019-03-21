@@ -20,14 +20,5 @@ from main import urls as main_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register/', user_views.register, name='register'),
     path('', include('main.urls')),
-    path('about/', include('main.urls')),
-    path('createchannel/', include('main.urls')),
-    path('findchannel/', include('main.urls')),
-    path('channelinfo/', include('main.urls')),
-    path('channelsettings/', include('main.urls')),
-    path('userprofile/', include('main.urls')),
-    path('newmessage/', include('main.urls')),
-    path('draftpage/', include('main.urls')),
 ]

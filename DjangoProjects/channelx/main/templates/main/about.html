@@ -1,8 +1,109 @@
 {% extends "main/base.html" %}
 {% block content %}
-{% load static %}
+<head>
+  <title>about</title>
+  <style>
+    p {color:white; text-align:left;}
+</style>
+</head>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'main/home.css' %}">
+<body>
+
+  <div class="col-12" style="text-align:center; border: 1px solid black; background-color:#293132">
     <h1 style="text-align:center;font-size:60px">ChannelX</h1>
-    
+    <h3><a href="http://score-contest.org/2018/projects/channelx.php">
+      SCORE Project: <i>ChannelX</i> </a></h3>
+    <h5 style="color:white">Transient Shared Communication Channels</h5>
+    <p><b>Sponsor</b>: Christine Julien</p>
+    <p>With the availability of e-mail, SMS, Slack, and many other messaging
+       applications, many channels exist for connecting two or more people.
+       However, existing channels permanently associate an identifier with a
+       user, making the user always reachable at the same handle. However, many
+       of our activities require communication channels that are more transient
+       in nature. Many times, we do not really want to give an otherwise
+       perfect stranger our phone number, but we do want that person to be able
+       to contact us, potentially for a limited time or in limited
+       circumstances. For instance, a university teaching assistant may want to
+       make a channel available to students in a course only during designated
+       "available" hours and only for the duration of a semester. A seller (or
+       buyer) on a service like Craigslist may want to create a channel of
+       availability for the duration of a given transaction. By making these
+       transient channels available, a user can protect his or her identity and
+       the more direct channels (e.g., not having to give a phone number out to
+       a potential buyer on Craigslist). The goal of this project is to create
+       a service that supports the creation of such transient channels with
+       user-friendly names, associates them with (hidden) permanent handles for
+       the users, and manages the lifecycle of the created channels.</p>
+
+  <p><b>Project Description</b></p>
+   <p>ChannelX will make it possible to create, share, and destroy transient
+     communication channels. These channels should be tied to users' existing
+     communication streams (e.g., SMS, e-mail, etc.) without exposing the
+     user's actual phone number or e-mail address. To fully manage the
+     lifecycle of transient channels, the application should allow a user to:<br>
+     manage a profile, in which the application stores the concrete direct
+     contact channels for the user (e.g., phone number, e-mail) and preferences
+     (e.g., default available times, default contact means, etc.);<br>
+     create a new obfuscated communication channel and associate with it
+     properties of its availability (e.g., available schedule, times, length
+     of life, restrictions to specific users or types of users (optional), etc.)
+      and associated direct contact mean(s);<br>
+    choose or be given an-easy-to-share "name" of the channel (e.g., "blue
+    balloon"); channel names should follow some easy pattern and should be easy
+    to share both orally and written;<br>
+    join a channel given its obfuscated name; and delete a channel.<br>
+    Within a channel, the users can be required to be identified by their
+    actual names, or, optionally, channels should be able to be defined to
+    allow participants to assume personae using names selected from some
+    predefined set (e.g., animal names, food names, etc.).<br>
+    Profiles and channel mappings should be stored in a backend to
+    facilitate joining and deleting channels.</p>
+
+   <p><b>Project Scope</b></p>
+   <p>The project should support the features described above. In addition,
+     optional features could be added to the application at the team's
+     discretion, but these features should not supplant the required features
+     nor should they interfere with the required features. The project can
+     support other actual communication types other than SMS and e-mail using
+     the APIs available for those services, but it should at a minimum support
+     phone numbers and e-mail addresses. The application must support
+     text-based communication but could also opt to support audio and/or video,
+     either synchronously or asynchronously.
+
+     The project should provide a web-based interface but the team may also opt
+     to provide a mobile application for one or more mobile OSs as desired.
+
+     The project must include high quality documentation, including documents
+     on the process (see below) and a (brief) user manual that describes how
+     to get started with the application.</p>
+
+   <p><b>Process Requirements</b></p>
+   <p>Teams can adopt any development process. Project artifacts must be stored
+     in a public repository with issue tracking facilities (e.g., GitHub). The
+     team should also perform some formal project tracking, including defining
+     milestones in advance, assigning roles to team members, developing a
+     testing plan, etc. The team should pay particular attention to the
+     usability of the application.
+
+   <p><b>Environmental Constraints</b></p>
+   <p>The application should be web-based and must run on most modern browsers
+     (e.g., Chrome, Firefox, Internet Explorer). Backend platforms to be used
+     are up to the team to determine. Design that is compatible with use on a
+     smartphone is encouraged; teams may even opt to make native one or more
+     native applications for various mobile OSs.</p>
+
+   <p><b>Level of Sponsor Involvement</b></p>
+   <p>The sponsor of this project will accept questions via email about the
+     project topic at any time. Brief Skype meetings can be arranged on demand
+     if necessary.</p>
+   <p><b>Sponsor contact: c (dot) julien (at) utexas (dot) edu</b></p>
+
+   <p><b>Project Restrictions</b></p>
+   <p>None.</p>
+
+
+
+
+</body>
+
 {% endblock content %}

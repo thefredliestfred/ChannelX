@@ -3,7 +3,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'main/home.css' %}">
+
 
 <div class="container" style="color:white; text-align:center; border: 1px solid black; background-color:#293132">
     <form style="width: 100%; padding:0 25% 0 25%" method="POST">
@@ -17,7 +17,7 @@
         </div>
     </form>
     <div class="border-top pts-3">
-        <small class="text-muted">Already have an account? <a class="ml-2" href='#'>Sign In</a> </small>
+        <small class="text-muted">Already have an account? <a class="ml-2" href="{% url 'main-login' %}">Sign In</a> </small>
     </div>
 </div>
 {% endblock content %}

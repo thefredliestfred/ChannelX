@@ -2,9 +2,7 @@
 {% block content %}
 {% load static %}
 
-<head>
-
-</head>
+<head> </head>
 <body>
 <!-- The Page -->
   <div class="container-fluid">
@@ -36,17 +34,16 @@
       <!-- Right Side -->
       <div class="col-4" style="height:200px; background-color:#293132;">
       <!-- Buttons -->
-                <p style='margin:auto; padding:20px 10px 0px 10px'>
-                    <a href="{% url 'main-createchannel' %}"><button class='btn btn-secondary btn-block' id='createBtn'>Create Channel</button></a>
-                </p>
-                <p style='margin:auto; padding:20px 10px 0px 10px'>
-                    <a href="{% url 'main-findchannel' %}"><button class='btn btn-secondary btn-block' id='findBtn'>Find a Channel</button></a>
-                </p>
-                <p style='margin:auto; padding:20px 10px 0px 10px'>
-                    <a href="{% url 'main-userprofile' %}"><button class='btn btn-secondary btn-block' id='userBtn'>User Profile</button></a>
-                </p>
-            </div>
-        </div>
+        <p style='margin:auto; padding:20px 10px 0px 10px'>
+          <a href="{% url 'main-createchannel' %}"><button class='btn btn-secondary btn-block' id='createBtn'>Create Channel</button></a>
+        </p>
+        <p style='margin:auto; padding:20px 10px 0px 10px'>
+          <a href="{% url 'main-findchannel' %}"><button class='btn btn-secondary btn-block' id='findBtn'>Find a Channel</button></a>
+        </p>
+        <p style='margin:auto; padding:20px 10px 0px 10px'>
+          <a href="{% url 'main-userprofile' %}"><button class='btn btn-secondary btn-block' id='userBtn'>User Profile</button></a>
+        </p>
+      </div>
     </div>
   </div>
 </body>

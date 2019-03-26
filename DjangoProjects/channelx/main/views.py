@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from main.forms import CreateChannelForm
+from main.models import Channel
 
 def homepage(request):
-    return render(request, 'main/home.html', {"title": "Home"})
+    channels = Channel.objects.all()
+    #return render("main/home.html", {"channels": channels}, context_instance=Context(request))
+    return render(request, 'main/home.html', {"title": "Home", "channels": channels})
 
 def aboutpage(request):
     return render(request, 'main/about.html', {"title": "About"})

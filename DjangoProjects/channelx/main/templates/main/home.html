@@ -1,10 +1,9 @@
 {% extends "main/base.html" %}
 {% block content %}
 {% load static %}
+{% load crispy_forms_tags %}
 
-<head>
-
-</head>
+{% if user.is_authenticated %}
 <body>
 <!-- The Page -->
   <div class="container-fluid">
@@ -15,23 +14,19 @@
         <h2>Channel List</h2>
         <!-- Search Channel -->
         <div>
-            <form action="/action_page.php">
+            <form>
               <input type="text" placeholder="Search Channel List" name="search">
               <button type="submit"><i class="fa fa-search"></i></button>
+              <!-- Channel Count -->
               <div style="color: #547aa5; padding:10px">Channel Count - &lt;MAGIC NUMBER&gt;</div>
             </form>
-          <!-- Channel Count -->
         </div>
           <!-- Channels -->
-        <div style="border: 1px solid black; background-color:white; margin:10px">
-          <table style="width:100%; text-align:center">
-            <tbody>
-              <!--Connect to messages-->
-              <tr> <td>Channel 1</td> </tr>
-              <tr> <td>Channel 2</td> </tr>
-            </tbody>
-          </table>
-        </div>
+          <div class="table-wrapper-scroll-y" style="margin: 3%; background-color:#293132">
+              {% for channel in channels %}
+              <button class='btn btn-secondary btn-block'>{{ channel.channel_name }}<br>{List of Users}</button>
+              {% endfor %}
+          </div>
       </div>
       <!-- Right Side -->
       <div class="col-4" style="height:200px; background-color:#293132;">
@@ -50,4 +45,5 @@
     </div>
   </div>
 </body>
+{% endif %}
 {% endblock content %}

@@ -4,7 +4,6 @@ from main.models import Channel
 
 def homepage(request):
     channels = Channel.objects.all()
-    #return render("main/home.html", {"channels": channels}, context_instance=Context(request))
     return render(request, 'main/home.html', {"title": "Home", "channels": channels})
 
 def aboutpage(request):

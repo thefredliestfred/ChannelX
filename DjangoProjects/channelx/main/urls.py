@@ -11,7 +11,6 @@ urlpatterns = [
     path('channelinfo/', views.channelinfopage, name='main-channelinfo'),
     path('channelsettings/', views.channelsettingspage, name='main-channelsettings'),
     path('userprofile/', views.userprofilepage, name='main-userprofile'),
-    path('login/', views.loginpage, name='main-login'),
     path('thankyouregister/', views.thankyouregisterpage, name='main-thankyouregister'),
     path('ticketrecieved/',  views.ticketrecivedpage, name='main-ticketrecieved'),
     path('ticketrequest/',   views.ticketrequestpage, name='main-ticketrequest'),

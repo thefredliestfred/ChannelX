@@ -9,7 +9,7 @@ def homepage(request):
 
 
 def userprofilepage(request):
-    return render(request, 'main/userprofile.html', {"title": "User Profile"})
+    return render(request, 'users/profile.html', {"title": "User Profile"})
 
 
 def aboutpage(request):
@@ -50,7 +50,7 @@ def createchannelpage(request):
             form.save()
             #channelname = form.cleaned_data.get(channel_name)
             #messages.success(request, f'{channelname} was created!')
-            return redirect('home')
+            return redirect(' ')
     else:
         form = CreateChannelForm()
     return render(request, 'main/createChannel.html', {'form': form})

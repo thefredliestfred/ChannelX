@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from main.forms import CreateChannelForm
 from main.models import Channel
 
@@ -7,6 +6,7 @@ from main.models import Channel
 def homepage(request):
     channels = Channel.objects.all()
     return render(request, 'main/home.html', {"title": "Home", "channels": channels})
+
 
 def userprofilepage(request):
     return render(request, 'main/userprofile.html', {"title": "User Profile"})

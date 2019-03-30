@@ -11,7 +11,7 @@ def register(request):
             fname = form.cleaned_data.get('first_name')
             lname = form.cleaned_data.get('last_name')
             messages.success(request, f'Account created for {fname} {lname}!')
-            return redirect('/')
+            return redirect('')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})

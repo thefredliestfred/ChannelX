@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from main.forms import CreateChannelForm
+from main.models import Channel
 
 def homepage(request):
-    return render(request, 'main/home.html', {"title": "Home"})
+    channels = Channel.objects.all()
+    return render(request, 'main/home.html', {"title": "Home", "channels": channels})
 
 def aboutpage(request):
     return render(request, 'main/about.html', {"title": "About"})
@@ -19,17 +22,6 @@ def channelsettingspage(request):
 def userprofilepage(request):
     return render(request, 'main/userProfile.html', {"title": "User Profile"})
 
-def loginpage(request):
-    if request.method == 'Post':
-        form = LogInForm(request.POST)
-        if form.is_valid():
-            form.save()
-            logInUser = form.cleaned_data.get('logIn_User')
-            return redirect('/')
-        else:
-            form = LogInForm()
-    return render(request, 'main/logIn.html', {"title": "Log In"})
-
 def thankyouregisterpage(request):
     return render(request, 'main/thankYouReqister.html', {"title": "Thank You"})
 
@@ -41,12 +33,15 @@ def ticketrequestpage(request):
 
 def createchannelpage(request):
     if request.method == 'POST':
-        form = CreateChannelForm(request.POST)
+        username = None
+        if request.user.is_authenticated():
+            username = request.user.username
+        form = CreateChannelForm(request.POST, channel_owner=username)
         if form.is_valid():
             form.save()
-            channelname = form.cleaned_data.get('channel_name')
+            #channelname = form.cleaned_data.get(channel_name)
             #messages.success(request, f'{channelname} was created!')
-            return redirect('/')
+            return redirect('home')
     else:
         form = CreateChannelForm()
     return render(request, 'main/createChannel.html', {'form': form})

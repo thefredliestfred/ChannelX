@@ -1,25 +1,15 @@
-<!DOCTYPE html>
-<html lang='en-US'>
-
-<!-- Header and title -->
-
-<head>
-    <title>ChannelX</title>
-</head>
+{% extends "main/base.html" %}
+{% block content %}
 
 <!-- Items on page -->
-<body>
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-12" style="text-align:center; border: 1px solid black; background-color:#293132">
+            <h2>Thanks for registering!</h2>
+            <p>Please check your E-Mail for account creation verification</p>
+            <a href='{% url "login" %}'>Click here to login</a>
+        </div>
+    </div>
+</div>
 
-  <div class='container'>
-    <h1 style="text-align:center; font-size:60px">ChannelX</h1>
-    <center>
-      <h2>Thanks for registering!</h2>
-      <p>Please check your E-Mail for account creation verification</p>
-      <p>
-        <a href='index.html'>Click here to login</a>
-      </p>
-    </center>
-  </div>
-
-</body>
-</html>
+{% endblock content %}

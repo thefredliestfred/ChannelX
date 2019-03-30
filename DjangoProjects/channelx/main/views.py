@@ -33,11 +33,11 @@ def ticketrequestpage(request):
 
 def createchannelpage(request):
     if request.method == 'POST':
-        username = None
-        if request.user.is_authenticated():
-            username = request.user.username
-        form = CreateChannelForm(request.POST, channel_owner=username)
+        form = CreateChannelForm(request.POST)
         if form.is_valid():
+            #channel = Channel()
+            #channel.room_owner = form.cleaned_data["room_owner"]
+            #channel.save()
             form.save()
             #channelname = form.cleaned_data.get(channel_name)
             #messages.success(request, f'{channelname} was created!')

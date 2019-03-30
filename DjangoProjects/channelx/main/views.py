@@ -8,6 +8,9 @@ def homepage(request):
     channels = Channel.objects.all()
     return render(request, 'main/home.html', {"title": "Home", "channels": channels})
 
+def userprofilepage(request):
+    return render(request, 'main/userprofile.html', {"title": "User Profile"})
+
 
 def aboutpage(request):
     return render(request, 'main/about.html', {"title": "About"})

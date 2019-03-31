@@ -4,6 +4,8 @@
 
   To run the server, enter the command 'python manage.py runserver' in your virtual environment and the ChannelX application will run on localhost:8000
 
+  Check the required.txt file to see what libraries are required to run the ChannelX application.
+
   The requirements for Phase 3 are as follows:
     - Email Verification
     - Scheduling functions for channels

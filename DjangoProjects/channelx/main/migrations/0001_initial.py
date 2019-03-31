@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Channel',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('channel_name', models.CharField(max_length=30)),
+                ('room_name', models.CharField(max_length=30)),
             ],
         ),
     ]

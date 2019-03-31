@@ -5,6 +5,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from main.models import Channel
 from datetime import date
+from django.utils.safestring import mark_safe
+
+import json
 
 @login_required
 def homepage(request):
@@ -43,8 +46,8 @@ def aboutpage(request):
 def findchannelpage(request):
     return render(request, "main/findChannel.html", {"title": "Find Channel"})
 
-def channelinfopage(request):
-    return render(request, "main/channelInfo.html", {"title": "Channel Info"})
+def channelinfopage(request, room_name):
+    return render(request, 'main/channelInfo.html', {'room_name_json': mark_safe(json.dumps(room_name))})
 
 def channelsettingspage(request):
     return render(request, "main/channelSettings.html", {"title": "Channel Settings"})
@@ -60,23 +63,3 @@ def ticketrecivedpage(request):
 
 def ticketrequestpage(request):
     return render(request, "main/ticketRequest.html", {"title": "Report an Issue"})
-
-
-#def Post(request):
-#    """
-#        This view needs to be edited slightly once it is determined what
-#            the table values are
-#    """
-#    if request.method == "POST":
-#        msg = request.POST.get("msgbox", None)
-#        c = Chat(user=request.user, message=msg)
-#        if msg != "":
-#            c.save()
-#        return JsonResponse({"msg": msg})
-#    else:
-#        return HttpResponse("Request must be POST.")
-#
-#def Messages(request):
-#    c = Chat.objects.all()
-#    return render(request, "main/channelinfo.html", {"chat": c})
-#    return render(request, "main/draftpage.html", {"title": "Draft Page"})

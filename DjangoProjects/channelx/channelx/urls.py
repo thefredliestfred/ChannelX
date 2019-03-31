@@ -20,6 +20,8 @@ from users import views as user_views
 from main import urls as main_urls
 from django.views.generic.base import TemplateView
 
+# Need to later set up path for finding the channel
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),

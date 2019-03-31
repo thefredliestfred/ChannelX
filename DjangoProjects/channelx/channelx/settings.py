@@ -136,5 +136,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = '74.125.136.108'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+# SECURITY WARNING: keep the email/password used in production secret!
 EMAIL_HOST_USER = 'wtchanx2019@gmail.com'
 EMAIL_HOST_PASSWORD = 'yndqughcviogtbbq'

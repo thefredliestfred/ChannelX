@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
     {% if title %}
         <title>ChannelX - {{ title }}</title>
     {% else %}
@@ -34,8 +33,6 @@
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'main-about' %}">About</a>
                         <a class="nav-item nav-link" href="{% url 'main-channelsettings' %}">Channel Settings</a>
-                        <a class="nav-item nav-link" href="{% url 'main-channelinfo' %}">Channel Information</a>
-                        <a class="nav-item nav-link" href="{% url 'main-createchannel' %}">Create Channel</a>
                         <a class="nav-item nav-link" href="{% url 'main-findchannel' %}">Find Channel</a>
                         <a class="nav-item nav-link" href="{% url 'main-ticketrequest' %}">Submit a Ticket</a>
                     </div>
@@ -45,8 +42,8 @@
                             <a class="nav-item nav-link" href="{% url 'main-userprofile' %}">Profile</a>
                             <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                         {% else %}
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'users-register' %}">Register</a>
+                            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                            <a class="nav-item nav-link" href="{% url 'users-register' %}">Register</a>
                         {% endif %}
                     </div>
                 </div>

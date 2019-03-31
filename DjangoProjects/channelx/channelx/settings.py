@@ -130,3 +130,11 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = '/about/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#gmail.com server
+EMAIL_HOST = '74.125.136.108'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'wtchanx2019@gmail.com'
+EMAIL_HOST_PASSWORD = 'yndqughcviogtbbq'

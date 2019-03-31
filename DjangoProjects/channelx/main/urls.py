@@ -1,6 +1,8 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 from users import views as users_views
+
+# Need to later set up path for finding the channel
 
 urlpatterns = [
     path('', views.homepage, name='main-home'),
@@ -8,10 +10,11 @@ urlpatterns = [
     path('about/', views.aboutpage, name='main-about'),
     path('createchannel/', views.createchannelpage, name='main-createchannel'),
     path('findchannel/', views.findchannelpage, name='main-findchannel'),
-    path('channelinfo/', views.channelinfopage, name='main-channelinfo'),
+    #path('channelinfo/', views.channelinfopage, name='main-channelinfo'),
     path('channelsettings/', views.channelsettingspage, name='main-channelsettings'),
     path('userprofile/', views.userprofilepage, name='main-userprofile'),
     path('thankyouregister/', views.thankyouregisterpage, name='main-thankyouregister'),
     path('ticketrecieved/',  views.ticketrecivedpage, name='main-ticketrecieved'),
     path('ticketrequest/',   views.ticketrequestpage, name='main-ticketrequest'),
+    re_path(r'^(?P<room_name>[^/]+)/$', views.channelinfopage, name='main-channelinfo'),
 ]

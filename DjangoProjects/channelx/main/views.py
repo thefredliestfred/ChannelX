@@ -41,7 +41,6 @@ class ChannelUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 
-
 def userprofilepage(request):
     return render(request, 'users/profile.html', {"title": "User Profile"})
 
@@ -52,9 +51,6 @@ def aboutpage(request):
 
 def findchannelpage(request):
     return render(request, "main/findChannel.html", {"title": "Find Channel"})
-
-def channelinfopage(request, room_name):
-    return render(request, 'main/channelInfo.html', {'room_name_json': mark_safe(json.dumps(room_name))})
 
 
 def channelsettingspage(request):
@@ -73,17 +69,17 @@ def ticketrequestpage(request):
     return render(request, 'main/ticketRequest.html', {"title": "Report an Issue"})
 
 
-def createchannelpage(request):
-    if request.method == 'POST':
-        username = None
-        if request.user.is_authenticated():
-            username = request.user.username
-        form = CreateChannelForm(request.POST, channel_owner=username)
-        if form.is_valid():
-            form.save()
-            #channelname = form.cleaned_data.get(channel_name)
-            #messages.success(request, f'{channelname} was created!')
-            return redirect(' ')
-    else:
-        form = CreateChannelForm()
-    return render(request, 'main/createChannel.html', {'form': form})
+#def createchannelpage(request):
+#    if request.method == 'POST':
+#        username = None
+#        if request.user.is_authenticated():
+#            username = request.user.username
+#        form = CreateChannelForm(request.POST, channel_owner=username)
+#        if form.is_valid():
+#            form.save()
+#            #channelname = form.cleaned_data.get(channel_name)
+#            #messages.success(request, f'{channelname} was created!')
+#            return redirect(' ')
+#    else:
+#        form = CreateChannelForm()
+#    return render(request, 'main/createChannel.html', {'form': form})

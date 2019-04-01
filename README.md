@@ -7,9 +7,7 @@
   Check the required.txt file to see what libraries are required to run the ChannelX application.
 
   The requirements for Phase 3 are as follows:
-    - Email Verification
-    - Scheduling functions for channels
-    - User profile functions
+    - Email Verification, Scheduling functions for channels, User profile functions
 
 # ChannelX - Phase 2 (3/7/19)
 

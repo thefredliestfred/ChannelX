@@ -8,6 +8,7 @@ from datetime import date
 from django.utils.safestring import mark_safe
 
 import json
+import petname
 
 @login_required
 def homepage(request):
@@ -20,6 +21,8 @@ class ChannelListView(ListView):
 
 class ChannelDetailView(LoginRequiredMixin, DetailView):
     model = Channel
+    userAlias = petname.Generate(2)
+
 
 class ChannelCreateView(LoginRequiredMixin, CreateView):
     model = Channel
@@ -47,7 +50,7 @@ def findchannelpage(request):
     return render(request, "main/findChannel.html", {"title": "Find Channel"})
 
 def channelinfopage(request, room_name):
-    return render(request, 'main/channelInfo.html', {'room_name_json': mark_safe(json.dumps(room_name))})
+    return render(request, 'main/channel_detail.html', {'room_name_json': mark_safe(json.dumps(room_name))})
 
 def channelsettingspage(request):
     return render(request, "main/channelSettings.html", {"title": "Channel Settings"})

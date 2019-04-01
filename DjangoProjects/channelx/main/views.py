@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
-from main.forms import CreateChannelForm
+
 from main.models import Channel
 from datetime import date
 from django.utils.safestring import mark_safe
@@ -75,7 +75,7 @@ def ticketrecivedpage(request):
 def ticketrequestpage(request):
     return render(request, 'main/ticketRequest.html', {"title": "Report an Issue"})
 
-
+'''
 def createchannelpage(request):
     if request.method == 'POST':
         username = None
@@ -90,3 +90,4 @@ def createchannelpage(request):
     else:
         form = CreateChannelForm()
     return render(request, 'main/createChannel.html', {'form': form})
+    '''

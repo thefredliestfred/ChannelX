@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
-
+{% if user.is_authenticated %}
 <body>
 <!-- The Page -->
   <div class="container-fluid">

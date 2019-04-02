@@ -20,7 +20,9 @@
               <p>Quiet Hours for this channel are:</p>
               <p>From: {{ object.start_quiet_hour }} To: {{ object.end_quiet_hour }}</p>
             </div><br>
-            <p><a href="{% url 'main-channelsettings' %}"><button class="btn btn-secondary btn-block">Edit Channel Settings</button></a></p>
+            {% if request.user.username == object.room_owner|stringformat:"s" %}
+              <p><a href="{% url 'channel-update' channel.id %}"><button class="btn btn-secondary btn-block">Edit Channel Settings</button></a></p>
+            {% endif %}
       <br>
       </div>
 

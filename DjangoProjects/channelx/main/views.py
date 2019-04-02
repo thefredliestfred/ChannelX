@@ -1,18 +1,18 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from main.models import Channel
 from datetime import date
 
-@login_required
+#@login_required
 def homepage(request):
     return render(request, "main/home.html", {"title": "Home"})
 
-class ChannelListView(ListView):
+class ChannelListView(LoginRequiredMixin, ListView):
     model = Channel
-    template_name = "main/home.html" # <app>/<model>_<viewtype>.html
+    template_name = "main/home.html"
     context_object_name = "channels"
 
 class ChannelDetailView(LoginRequiredMixin, DetailView):
@@ -27,8 +27,9 @@ class ChannelCreateView(LoginRequiredMixin, CreateView):
         form.instance.start_life = date.today()
         return super().form_valid(form)
 
-class ChannelUpdateView(LoginRequiredMixin, UpdateView):
+class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Channel
+    template_name = 'main/channelSettings.html'
     fields = ["room_name", "expire_date", "start_quiet_hour", "end_quiet_hour"]
 
     def form_valid(self, form):
@@ -36,6 +37,21 @@ class ChannelUpdateView(LoginRequiredMixin, UpdateView):
         form.instance.start_life = date.today()
         return super().form_valid(form)
 
+    def test_func(self):
+        channel = self.get_object()
+        if self.request.user == channel.room_owner:
+            return True
+        return False
+
+class ChannelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Channel
+    success_url = "/"
+
+    def test_func(self):
+        channel = self.get_object()
+        if self.request.user == channel.room_owner:
+            return True
+        return False
 
 def aboutpage(request):
     return render(request, "main/about.html", {"title": "About"})

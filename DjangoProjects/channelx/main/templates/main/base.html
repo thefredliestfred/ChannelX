@@ -33,7 +33,7 @@
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'main-about' %}">About</a>
                         {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'main-channelsettings' %}">Channel Settings</a>
+                        <a class="nav-item nav-link" href="{% url 'main-home' %}">Channel Information</a>
                         <a class="nav-item nav-link" href="{% url 'channel-create' %}">Create Channel</a>
                         <a class="nav-item nav-link" href="{% url 'main-findchannel' %}">Find Channel</a>
                         {% endif %}
@@ -42,7 +42,7 @@
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
-                            <a class="nav-item nav-link" href="{% url 'main-userprofile' %}">Profile</a>
+                            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                             <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                         {% else %}
                             <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>

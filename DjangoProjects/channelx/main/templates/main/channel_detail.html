@@ -2,26 +2,27 @@
 {% block content %}
 {% load static %}
 
-<div class="container-fluid">
+<body>
+  <!--Channel information & Schedule-->
+  <div class="container-fluid">
     <div class="row content">
-    <!-- Channel Information -->
-    <p style="color:white">Channel Name: {{ object.room_name }}</p>
-    <p style="color:white">Channel Owner: {{ object.room_owner }}</p>
-    <p style="color:white">Channel Type: -----</p>
-    <p style="color:white">Your Alias: -----</p>
-    <p style="color:white">Schedule: </p>
-    <div style="border: 1px solid black; background-color:white">
-        <p style="padding: 0 0 0 5px">Channel Life:</p>
-        <p style="padding: 0 0 0 5px">{{ object.start_life }} - {{ object.expire_date }}</p>
-        <br>
-        <p style="padding: 0 0 0 5px">Quiet Hours:</p>
-        <p style="padding: 0 0 0 5px">{{ object.start_quiet_hour }} - {{ object.end_quiet_hour }}</p>
-    </div><br>
-    {% if user == object.room_owner %}
-        <p><a href="{% url 'channel-update' channel.id %}"><button class="btn btn-secondary btn-block">Edit Channel Settings</button></a></p>
-    {% endif %}
-    <br>
-</div>
+      <div class="col-4" style="border: 1px solid black; background-color:#293132">
+        <h2 style="text-align:center">Channel Information</h2>
+          <p style="color:white">Channel Name: {{ object.room_name }}</p>
+          <p style="color:white">Channel Owner: {{ object.room_owner }}</p>
+          <p style="color:white">Channel Type: -----</p>
+          <p style="color:white">Your Alias: -----</p>
+          <p style="color:white">Schedule: </p>
+            <div style="text-align:center; border: 1px solid black; background-color:white">
+              <p>This channel will be open:</p>
+              <p>From: {{ object.start_life }} To: {{ object.expire_date }}</p>
+              <br>
+              <p>Quiet Hours for this channel are:</p>
+              <p>From: {{ object.start_quiet_hour }} To: {{ object.end_quiet_hour }}</p>
+            </div><br>
+            <p><a href="{% url 'main-channelsettings' %}"><button class="btn btn-secondary btn-block">Edit Channel Settings</button></a></p>
+      <br>
+      </div>
 
 
       <!-- MESSAGING SYSTEM -->
@@ -73,28 +74,28 @@
           </script>
           <!-- AND HERE-->
 	    </div>
-
     <!--Contact list-->
-    <div class="col-3" style="padding:5px; border-radius: 10px; text-align:center; background-color:#293132">
+    <div class="col-3" style="padding:5px; text-align:center; border: 1px solid black; background-color:#293132">
         <h2>Contact List</h2>
-        <div class="search-container">
+          <div class="search-container">
             <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
+              <input type="text" placeholder="Search.." name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
             </form>
-        </div>
-        <section style="padding:5%">
+          </div>
+          <section style="padding:5%">
             <div style="border: 1px solid black; background-color:white">
-                <table style="width:100%; text-align:center">
-                    <tbody>
-                        <tr> <td>User Alias 1</td> </tr>
-                        <tr> <td>User Alias 2</td> </tr>
-                        <tr> <td>User Alias 3</td> </tr>
-                        <tr> <td>User Alias 4</td> </tr>
-                    </tbody>
-                </table>
+              <table style="width:100%; text-align:center">
+                <tbody>
+                  <tr> <td>User Alias 1</td> </tr>
+                  <tr> <td>User Alias 2</td> </tr>
+                  <tr> <td>User Alias 3</td> </tr>
+                  <tr> <td>User Alias 4</td> </tr>
+                </tbody>
+              </table>
             </div>
-        </section>
-    </div>
+          </section>
+  </div>
 </div>
+</body>
 {% endblock content %}

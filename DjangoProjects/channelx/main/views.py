@@ -18,7 +18,7 @@ class ChannelListView(LoginRequiredMixin, ListView):
     template_name = "main/home.html"
     context_object_name = "channels"
 
-class ChannelDetailView(LoginRequiredMixin, DetailView):
+class ChannelDetailView(DetailView):
     model = Channel
 
 class ChannelCreateView(LoginRequiredMixin, CreateView):
@@ -56,8 +56,8 @@ class ChannelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
-def userprofilepage(request):
-    return render(request, 'users/profile.html', {"title": "User Profile"})
+#def userprofilepage(request):
+#    return render(request, 'users/profile.html', {"title": "User Profile"})
 
 
 def aboutpage(request):

@@ -12,7 +12,7 @@ class Channel(models.Model):
     start_quiet_hour = models.TimeField(default=datetime.now, blank=True)
     end_quiet_hour = models.TimeField(default=datetime.now, blank=True)
     room_owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    slug = models.SlugField(max_length=30, unique=True)
+    slug = models.SlugField(max_length=30, blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = self.slug or slugify(self.room_name)

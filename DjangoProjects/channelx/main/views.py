@@ -6,24 +6,27 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from main.models import Channel
 from datetime import date
 from django.utils.safestring import mark_safe
-
 import json
 
-#@login_required
+
 def homepage(request):
     return render(request, "main/home.html", {"title": "Home"})
+
 
 class ChannelListView(LoginRequiredMixin, ListView):
     model = Channel
     template_name = "main/home.html"
     context_object_name = "channels"
 
+
 class ChannelDetailView(DetailView):
     model = Channel
+    template_name = "main/channel_detail.html"
+
 
 class ChannelCreateView(LoginRequiredMixin, CreateView):
     model = Channel
-    fields = ["room_name", "expire_date", "start_quiet_hour", "end_quiet_hour"]
+    fields = ["room_name", "expire_date", "start_quiet_hour", "end_quiet_hour", "slug"]
 
     def form_valid(self, form):
         form.instance.room_owner = self.request.user
@@ -33,7 +36,7 @@ class ChannelCreateView(LoginRequiredMixin, CreateView):
 class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Channel
     template_name = 'main/channelSettings.html'
-    fields = ["room_name", "expire_date", "start_quiet_hour", "end_quiet_hour"]
+    fields = ["room_name", "expire_date", "start_quiet_hour", "end_quiet_hour", "slug"]
 
     def form_valid(self, form):
         form.instance.room_owner = self.request.user
@@ -45,6 +48,7 @@ class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == channel.room_owner:
             return True
         return False
+
 
 class ChannelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Channel
@@ -61,10 +65,17 @@ def aboutpage(request):
     return render(request, "main/about.html", {"title": "About"})
 
 
+@login_required
 def findchannelpage(request):
     return render(request, "main/findChannel.html", {"title": "Find Channel"})
 
 
+@login_required
+def channelinfopage(request, room_name):
+    return render(request, 'main/channel_detail.html', {'room_name_json': mark_safe(json.dumps(room_name))})
+
+
+@login_required
 def channelsettingspage(request):
     return render(request, "main/channelSettings.html", {"title": "Channel Settings"})
 
@@ -95,3 +106,4 @@ def ticketrequestpage(request):
 #    else:
 #        form = CreateChannelForm()
 #    return render(request, 'main/createChannel.html', {'form': form})
+#

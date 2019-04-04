@@ -7,6 +7,7 @@
 <!-- The Page -->
   <div class="container-fluid">
     <div class="row content">
+<<<<<<< HEAD
       <div class="col-2"> <!-- Just for formating --> </div>
       <div class="col-8" style="text-align:center; border: 1px solid black; background-color:#293132">
         <h1 style="font-size: 60px">ChannelX</h1>
@@ -22,6 +23,29 @@
         <a style="background:darkgray; border: 1px solid black; font-size:30px; padding:5px" href="{% url 'users-register' %}">Register</a>
         {% endif %}
         <br><br>
+=======
+    <!-- Left Side -->
+      <div class="col-8" style="text-align:center; background-color:#293132">
+        <!-- Channel List -->
+        <h2>Channel List</h2>
+        <!-- Search Channel -->
+        <div>
+            <form>
+              <input type="text" placeholder="Search Channel List" name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+              <!-- Channel Count -->
+              <div style="color: #547aa5; padding:10px">Channel Count - &lt;MAGIC NUMBER&gt;</div>
+            </form>
+        </div>
+          <!-- Channels -->
+          <div class="table-wrapper-scroll-y" style="margin: 3%; background-color:#293132">
+            {% for channel in channels %}
+              <p style='margin:auto; padding:0px 0px 10px 0px'>
+                <a href="{% url 'channel-detail' channel.slug %}"><button style="padding-bottom: 5px" class='btn btn-secondary btn-block'>{{ channel.room_name }}<br>{List of Users}</button>
+              </p>
+            {% endfor %}
+          </div>
+>>>>>>> fred
       </div>
   </div>
 </body>

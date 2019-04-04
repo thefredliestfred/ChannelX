@@ -1,4 +1,4 @@
-# mysite/routing.py
+# channelx/routing.py
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 import main.routing

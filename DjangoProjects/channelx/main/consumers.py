@@ -2,9 +2,9 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 
 class ChatConsumer(AsyncWebsocketConsumer):
-    async def connect(self):
+    async def connect(self, *args, **kwargs):
         self.room_name = self.scope['url_route']['kwargs']['room_name']
-        self.room_group_name = 'chat_%s' % self.room_name
+        self.room_group_name = 'channel_%s' % self.room_name
 
         # Join room group
         await self.channel_layer.group_add(

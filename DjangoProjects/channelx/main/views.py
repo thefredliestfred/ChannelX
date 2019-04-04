@@ -6,17 +6,18 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from main.models import Channel
 from datetime import date
 from django.utils.safestring import mark_safe
-
 import json
 
-#@login_required
+
 def homepage(request):
     return render(request, "main/home.html", {"title": "Home"})
+
 
 class ChannelListView(LoginRequiredMixin, ListView):
     model = Channel
     template_name = "main/home.html"
     context_object_name = "channels"
+
 
 class ChannelDetailView(DetailView):
     model = Channel
@@ -48,6 +49,7 @@ class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         return False
 
+
 class ChannelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Channel
     success_url = "/"
@@ -63,13 +65,17 @@ def aboutpage(request):
     return render(request, "main/about.html", {"title": "About"})
 
 
+@login_required
 def findchannelpage(request):
     return render(request, "main/findChannel.html", {"title": "Find Channel"})
 
+
+@login_required
 def channelinfopage(request, room_name):
     return render(request, 'main/channel_detail.html', {'room_name_json': mark_safe(json.dumps(room_name))})
 
 
+@login_required
 def channelsettingspage(request):
     return render(request, "main/channelSettings.html", {"title": "Channel Settings"})
 
@@ -85,19 +91,19 @@ def ticketrecivedpage(request):
 def ticketrequestpage(request):
     return render(request, 'main/ticketRequest.html', {"title": "Report an Issue"})
 
-'''
-def createchannelpage(request):
-    if request.method == 'POST':
-        username = None
-        if request.user.is_authenticated():
-            username = request.user.username
-        form = CreateChannelForm(request.POST, channel_owner=username)
-        if form.is_valid():
-            form.save()
-            #channelname = form.cleaned_data.get(channel_name)
-            #messages.success(request, f'{channelname} was created!')
-            return redirect(' ')
-    else:
-        form = CreateChannelForm()
-    return render(request, 'main/createChannel.html', {'form': form})
-    '''
+
+#def createchannelpage(request):
+#    if request.method == 'POST':
+#        username = None
+#        if request.user.is_authenticated():
+#            username = request.user.username
+#        form = CreateChannelForm(request.POST, channel_owner=username)
+#        if form.is_valid():
+#            form.save()
+#            #channelname = form.cleaned_data.get(channel_name)
+#            #messages.success(request, f'{channelname} was created!')
+#            return redirect(' ')
+#    else:
+#        form = CreateChannelForm()
+#    return render(request, 'main/createChannel.html', {'form': form})
+#

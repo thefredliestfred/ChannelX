@@ -9,7 +9,6 @@ from datetime import date
 from django.utils.safestring import mark_safe
 
 import json
-import petname
 
 @login_required
 def homepage(request):
@@ -22,7 +21,7 @@ class ChannelListView(ListView):
 
 class ChannelDetailView(LoginRequiredMixin, DetailView):
     model = Channel
-    userAlias = petname.Generate(2)
+    template_name = "main/channel_detail.html"
 
 
 class ChannelCreateView(LoginRequiredMixin, CreateView):

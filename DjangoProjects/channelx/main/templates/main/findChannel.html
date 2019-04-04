@@ -41,10 +41,10 @@
       <h2>Join a Channel</h2>
       <p>Enter an existing Channel Name:</p>
       <p>
-        <input class="form-control" placeholder="<Channel Name>" id="createChannel" name="createChannel" type="text">
+        <input class="form-control" placeholder="<Channel Name>" id="room-name-input" name="createChannel" type="text">
       </p>
       <p style="margin:auto; width:200px; padding:10px">
-          <button class="button">Send Join Request<br>(NotActive)</button>
+          <button id = 'room-name-submit' class="button">Send Join Request<br>(NotActive)</button>
       </p>
       <script>
         document.querySelector('#room-name-input').focus();
@@ -56,7 +56,7 @@
 
         document.querySelector('#room-name-submit').onclick = function(e) {
             var roomName = document.querySelector('#room-name-input').value;
-            window.location.pathname = '/channel/<int:pk>' + roomName + '/';
+            window.location.pathname = '/channel/' + roomName + '/';
         };
     </script>
     </div>

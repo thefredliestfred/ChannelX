@@ -7,9 +7,9 @@ from users import views as users_views
 
 urlpatterns = [
     path('', ChannelListView.as_view(), name='main-home'),
-    path('channel/<int:pk>', ChannelDetailView.as_view(), name='channel-detail'),
+    path('channel/<room_name>/', ChannelDetailView.as_view(), name='channel-detail'),
     path('channel/new/', ChannelCreateView.as_view(), name='channel-create'),
-    path('channel/<int:pk>/update', ChannelUpdateView.as_view(), name='channel-update'),
+    path('channel/<room_name>/update/', ChannelUpdateView.as_view(), name='channel-update'),
     path('register/', users_views.register, name='users-register'),
     path('about/', views.aboutpage, name='main-about'),
     path('findchannel/', views.findchannelpage, name='main-findchannel'),

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 class Channel(models.Model):
-    room_name = models.CharField(max_length=30)
+    room_name = models.CharField(max_length=30, unique=True)
     start_life = models.DateField(default=date.today, null=True)
     expire_date = models.DateField(default=date.today, null=True)
     start_quiet_hour = models.TimeField(default=datetime.now, blank=True)
@@ -15,4 +15,4 @@ class Channel(models.Model):
         return self.room_name
 
     def get_absolute_url(self):
-        return reverse("channel-detail", kwargs={"pk": self.pk})
+        return reverse("channel-detail", kwargs={"room_name": self.room_name})

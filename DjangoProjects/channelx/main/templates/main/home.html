@@ -17,7 +17,7 @@
         {% if user.is_authenticated %}
         <p style="background:darkgray; border: 1px solid black; font-size:30px; padding:5px" href="{% url 'main-channelsettings' %}">Channel Settings</p>
         <br>
-        <p style="background:darkgray; border: 1px solid black; font-size:30px; padding:5px" href="{% url 'main-createchannel' %}">Create Channel</p>
+        <p style="background:darkgray; border: 1px solid black; font-size:30px; padding:5px" href="{% url 'channel-create' %}">Create Channel</p>
         <br>
         <p style="background:darkgray; border: 1px solid black; font-size:30px; padding:5px" href="{% url 'main-findchannel' %}">Find Channel</p>
         {% else %}

@@ -1,78 +1,55 @@
 {% extends "main/base.html" %}
 {% block content %}
-<!--Header and Title for pages-->
-<head>
-  <meta name='viewport' content='device-width, initial-scale=1'>
-  <title>ChannelX</title>
-</head>
+{% load crispy_forms_tags %}
 
-<!--All the stuff you see-->
-<body>
-  <!--Channel information & Schedule-->
-  <div class="container-fluid">
+<!--Channel information & Schedule-->
+<div class="container-fluid">    
     <div class="row content">
-      <div class="col-6" style="text-align:center; border: 1px solid black; background-color:#293132">
-
-      <h2 style="text-align: center">Channel Information</h2>
-      <p style="color:white">
-        <label class="cols-sm-2 control-label" for="channelName">Channel Name: </label>
-        <input class="form-control" id="createChannel" name="createChannel" type="text">
-      </p>
-      <p style="color:white">
-        <label class="cols-sm-2 control-label" for="channelName">Channel Type: </label>
-        <select>
-          <option selected="selected">Email</option>
-          <option>Text</option>
-        </select>
-      </p>
-      <p style="color:white">Your Alias: &lt;Unique Alias&gt;</p>
-      <section style="align:center; width:100%; padding-bottom:10px">
-        <p style="color:white">Schedule:</p>
-        <div class="chanSch"; style="text-align:center; border: 1px solid black; background-color:white">
-          <p>This channel will be open:</p>
-          <p>From:&lt;start date&gt; To:&lt;end date&gt;</p>
-          <br>
-          <p>Quiet Hours for this channel are:</p>
-          <p>From:&lt;start time&gt; To:&lt;end time&gt;</p>
+        <div class="col-6" style="text-align:center; background-color:#293132">
+            <!-- Channel List -->
+            <h2>Edit Channel</h2>
+            <!-- Search Channel -->
+            <div>
+                <form class="form-group" method="post" style="color:white; width:100%; padding: 0 25% 10% 25%">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button style="width:100px; float:left;" type="submit" class="btn btn-secondary">Save</button>
+                    <a style="width:100px; float:right;" class="btn btn-danger" href="{% url 'channel-delete' channel.id %}">Delete</a>
+                </form>
+            </div>
         </div>
-      </section>
-      <p style="padding:0 20px 50px 0">
-          <button class="button" style="float:left">Save Changes<br>(NotActive)</button>
-          <button class="button" style="float:right">Delete Channel<br>(NotActive)</button>
-      </p>
-    </div>
 
 
-  <!--Contact list-->
-   <div class="col-6" style="text-align:center; border: 1px solid black; background-color:#293132">
-      <h2 style="text-align: center">Contact List</h2>
-      <div class="search-container" style="padding:10px">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div>
-      <section style="padding:5%">
-        <div class="table-wrapper-scroll-y" style="border: 1px solid black; background-color:white">
-          <table style="width:100%; text-align:left">
-            <tbody>
-              <tr> <td>User Alias 1</td> </tr>
-              <tr> <td>User Alias 2</td> </tr>
-              <tr> <td>User Alias 3</td> </tr>
-              <tr> <td>User Alias 4</td> </tr>
-              <tr> <td>User Alias 5</td> </tr>
-              <tr> <td>User Alias 6</td> </tr>
-              <tr> <td>User Alias 7</td> </tr>
-              <tr> <td>User Alias 8</td> </tr>
-              <tr> <td>User Alias 9</td> </tr>
-            </tbody>
-          </table>
+        <!--Contact list-->
+        <div class="col-4" style="text-align:center; border: 1px solid black; background-color:#293132">
+            <h2 style="text-align: center">Channel Users</h2>
+            <div class="search-container" style="padding:10px">
+                <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <section style="padding:5%">
+                <div class="table-wrapper-scroll-y" style="border: 1px solid black; background-color:white">
+                <table style="width:100%; text-align:left">
+                    <tbody>
+                    <tr> <td>User Alias 1</td> </tr>
+                    <tr> <td>User Alias 2</td> </tr>
+                    <tr> <td>User Alias 3</td> </tr>
+                    <tr> <td>User Alias 4</td> </tr>
+                    <tr> <td>User Alias 5</td> </tr>
+                    <tr> <td>User Alias 6</td> </tr>
+                    <tr> <td>User Alias 7</td> </tr>
+                    <tr> <td>User Alias 8</td> </tr>
+                    <tr> <td>User Alias 9</td> </tr>
+                    </tbody>
+                </table>
+                </div>
+            </section>
+            <p>
+                <button class="button">Remove User<br>(NotActive)</button>
+            </p>
         </div>
-      </section>
-      <p>
-          <button class="button">Remove User<br>(NotActive)</button>
-      </p>
     </div>
-
-</body>
+</div>
 {% endblock content %}

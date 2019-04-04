@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
     {% if title %}
         <title>ChannelX - {{ title }}</title>
     {% else %}
@@ -37,8 +36,6 @@
                         <a class="nav-item nav-link" href="{% url 'main-channelsettings' %}">Channel Settings</a>
                         <a class="nav-item nav-link" href="{% url 'main-createchannel' %}">Create Channel</a>
                         <a class="nav-item nav-link" href="{% url 'main-findchannel' %}">Find Channel</a>
-                        {% endif %}
-                        <a class="nav-item nav-link" href="{% url 'main-ticketrequest' %}">Submit a Ticket</a>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
@@ -46,8 +43,8 @@
                             <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                             <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                         {% else %}
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'users-register' %}">Register</a>
+                            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                            <a class="nav-item nav-link" href="{% url 'users-register' %}">Register</a>
                         {% endif %}
                     </div>
                 </div>
@@ -56,7 +53,7 @@
     </header>
     <main role="main" class="container">
             <div class="row">
-                <div style="width:100%; padding-top:50px">
+                <div style="width:100%; padding-top:16px">
                 {% if messages %}
                     {% for message in messages %}
                     <div class="alert alert-{{ message.tags }}">

@@ -22,10 +22,13 @@ from django.views.generic.base import TemplateView
 from users import views as user_views
 from main import urls as main_urls
 
+# Need to later set up path for finding the channel
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    #path('profile/', user_views.profile, name='profile'),
     path('pword_reset/', auth_views.PasswordResetView.as_view(
      template_name='users/pword_reset.html'),
          name='pword_reset'),

@@ -31,6 +31,7 @@ class ChannelCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.room_owner = self.request.user
         form.instance.start_life = date.today()
+        #form.instance.slug = room_name
         return super().form_valid(form)
 
 class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -41,6 +42,7 @@ class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def form_valid(self, form):
         form.instance.room_owner = self.request.user
         form.instance.start_life = date.today()
+        #form.instance.slug = object.room_name
         return super().form_valid(form)
 
     def test_func(self):

@@ -5,3 +5,4 @@ _site/
 DjangoProjects/channelx/db.sqlite3
 DjangoProjects/channelx/db.sqlite3
 DjangoProjects/channelx/db.sqlite3
+*.sqlite3

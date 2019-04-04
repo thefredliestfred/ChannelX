@@ -1,13 +1,18 @@
 from django.db import models
 from datetime import date, datetime
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Channel(models.Model):
-    channel_name = models.CharField(max_length=30)
-    expire_date = models.DateField(default=date.today, null=True, blank=True)
+    room_name = models.CharField(max_length=30)
+    start_life = models.DateField(default=date.today, null=True)
+    expire_date = models.DateField(default=date.today, null=True)
     start_quiet_hour = models.TimeField(default=datetime.now, blank=True)
     end_quiet_hour = models.TimeField(default=datetime.now, blank=True)
-    channel_owner = models.CharField(User, max_length=40)
+    room_owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
-        return self.channel_name
+        return self.room_name
+
+    def get_absolute_url(self):
+        return reverse("channel-detail", kwargs={"pk": self.pk})

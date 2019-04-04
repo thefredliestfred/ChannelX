@@ -2,3 +2,4 @@
 
 clean:
 	find . -type d -name __pycache__ -exec rm -r {} \+
+	find . -name '.DS_Store' -type f -delete

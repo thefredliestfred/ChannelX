@@ -8,10 +8,6 @@ def homepage(request):
     return render(request, 'main/home.html', {"title": "Home", "channels": channels})
 
 
-def userprofilepage(request):
-    return render(request, 'users/profile.html', {"title": "User Profile"})
-
-
 def aboutpage(request):
     return render(request, 'main/about.html', {"title": "About"})
 

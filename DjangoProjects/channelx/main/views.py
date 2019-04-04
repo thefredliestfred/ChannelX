@@ -25,7 +25,7 @@ class ChannelDetailView(DetailView):
 
 class ChannelCreateView(LoginRequiredMixin, CreateView):
     model = Channel
-    fields = ["room_name", "expire_date", "start_quiet_hour", "end_quiet_hour"]
+    fields = ["room_name", "expire_date", "start_quiet_hour", "end_quiet_hour", "slug"]
 
     def form_valid(self, form):
         form.instance.room_owner = self.request.user
@@ -35,7 +35,7 @@ class ChannelCreateView(LoginRequiredMixin, CreateView):
 class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Channel
     template_name = 'main/channelSettings.html'
-    fields = ["room_name", "expire_date", "start_quiet_hour", "end_quiet_hour"]
+    fields = ["room_name", "expire_date", "start_quiet_hour", "end_quiet_hour", "slug"]
 
     def form_valid(self, form):
         form.instance.room_owner = self.request.user

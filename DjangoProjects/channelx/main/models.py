@@ -2,6 +2,7 @@ from django.db import models
 from datetime import date, datetime
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils.text import slugify
 
 class Channel(models.Model):
     room_name = models.CharField(max_length=30, unique=True)

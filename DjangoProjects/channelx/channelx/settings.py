@@ -146,7 +146,7 @@ CHANNEL_LAYERS = {
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-#gmail.com server
+# gmail.com server
 EMAIL_HOST = '74.125.136.108'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

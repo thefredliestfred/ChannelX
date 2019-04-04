@@ -58,9 +58,6 @@ class ChannelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
-#def userprofilepage(request):
-#    return render(request, 'users/profile.html', {"title": "User Profile"})
-
 
 def aboutpage(request):
     return render(request, "main/about.html", {"title": "About"})

@@ -24,7 +24,7 @@
           <div class="table-wrapper-scroll-y" style="margin: 3%; background-color:#293132">
             {% for channel in channels %}
               <p style='margin:auto; padding:0px 0px 10px 0px'>
-                <a href="{% url 'channel-detail' channel.id %}"><button style="padding-bottom: 5px" class='btn btn-secondary btn-block'>{{ channel.room_name }}<br>{List of Users}</button>
+                <a href="{% url 'channel-detail' channel.slug %}"><button style="padding-bottom: 5px" class='btn btn-secondary btn-block'>{{ channel.room_name }}<br>{List of Users}</button>
               </p>
             {% endfor %}
           </div>

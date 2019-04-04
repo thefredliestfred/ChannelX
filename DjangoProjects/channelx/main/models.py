@@ -10,10 +10,14 @@ class Channel(models.Model):
     start_quiet_hour = models.TimeField(default=datetime.now, blank=True)
     end_quiet_hour = models.TimeField(default=datetime.now, blank=True)
     room_owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    slug = models.SlugField(max_length=30, blank=True)
+    slug = models.SlugField(max_length=30, unique=True)
 
     def __str__(self):
         return self.room_name
+    
+    def save(self, *args, **kwargs):
+        self.slug = self.slug or slugify(self.room_name)
+        super(Channel, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse("channel-detail", kwargs={"room_name": self.room_name})
+        return reverse("channel-detail", kwargs={"slug": self.slug})

@@ -28,7 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('profile/', user_views.profile, name='profile'),
+    #path('profile/', user_views.profile, name='profile'),
     path('pword_reset/', auth_views.PasswordResetView.as_view(
      template_name='users/pword_reset.html'),
          name='pword_reset'),

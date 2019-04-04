@@ -15,7 +15,6 @@ urlpatterns = [
     path('findchannel/', views.findchannelpage, name='main-findchannel'),
     path('register/', users_views.register, name='users-register'),
     path('profile/', users_views.profile, name='profile'),
-#    path('channelinfo/', views.channelinfopage, name='main-channelinfo'),
     path('channelsettings/', views.channelsettingspage, name='main-channelsettings'),
     path('thankyouregister/', views.thankyouregisterpage, name='main-thankyouregister'),
     path('ticketrecieved/',  views.ticketrecivedpage, name='main-ticketrecieved'),

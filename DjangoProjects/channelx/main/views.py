@@ -15,11 +15,11 @@ def homepage(request):
 
 class ChannelListView(LoginRequiredMixin, ListView):
     model = Channel
-    template_name = "main/home.html"
+    #template_name = "main/channel_list.html"
     context_object_name = "channels"
 
 
-class ChannelDetailView(DetailView):
+class ChannelDetailView(LoginRequiredMixin, DetailView):
     model = Channel
     template_name = "main/channel_detail.html"
 
@@ -54,7 +54,7 @@ class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class ChannelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Channel
-    success_url = "/"
+    success_url = "/channel/"
 
     def test_func(self):
         channel = self.get_object()

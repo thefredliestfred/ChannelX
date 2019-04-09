@@ -15,11 +15,11 @@ def homepage(request):
 
 class ChannelListView(LoginRequiredMixin, ListView):
     model = Channel
-    template_name = "main/home.html"
+    #template_name = "main/channel_list.html"
     context_object_name = "channels"
 
 
-class ChannelDetailView(DetailView):
+class ChannelDetailView(LoginRequiredMixin, DetailView):
     model = Channel
     template_name = "main/channel_detail.html"
 
@@ -31,6 +31,7 @@ class ChannelCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.room_owner = self.request.user
         form.instance.start_life = date.today()
+        #form.instance.slug = room_name
         return super().form_valid(form)
 
 class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -41,6 +42,7 @@ class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def form_valid(self, form):
         form.instance.room_owner = self.request.user
         form.instance.start_life = date.today()
+        #form.instance.slug = object.room_name
         return super().form_valid(form)
 
     def test_func(self):
@@ -52,7 +54,7 @@ class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class ChannelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Channel
-    success_url = "/"
+    success_url = "/channel/"
 
     def test_func(self):
         channel = self.get_object()

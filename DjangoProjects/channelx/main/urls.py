@@ -1,4 +1,5 @@
 from django.urls import path, re_path
+from django.conf.urls import include, url
 from . import views
 from .views import ChannelListView, ChannelDetailView, ChannelCreateView, ChannelUpdateView, ChannelDeleteView
 from users import views as users_views
@@ -20,4 +21,5 @@ urlpatterns = [
     path('channel/<str:slug>/', ChannelDetailView.as_view(), name='channel-detail'),
     path('channel/<str:slug>/update/', ChannelUpdateView.as_view(), name='channel-update'),
     path('channel/<str:slug>/delete/', ChannelDeleteView.as_view(), name='channel-delete'),
+    url(r'^chat/', include('chat.urls')),
 ]

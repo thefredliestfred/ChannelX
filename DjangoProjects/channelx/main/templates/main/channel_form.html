@@ -15,4 +15,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $("#id_slug").prop('disabled', true);
+        $("#div_id_slug").hide();
+        $("#id_room_name").on("change keyup", function() {
+            var slug_name = $("#id_room_name").val();
+            slug_name = slug_name.replace(/ /g, "-");
+            $("#id_slug").val(slug_name);
+            console.log($("#id_slug").val());
+        })
+    });
+</script>
+
 {% endblock %}

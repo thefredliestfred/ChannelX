@@ -1,15 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
-from coolname import generate, generate_slug
+from coolname import generate_slug
 
-anon = generate_slug(3)
 
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
-    anon = anon
 
     def __str__(self):
         return f'{self.user.username} Profile'

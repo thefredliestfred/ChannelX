@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from datetime import date, datetime
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -23,3 +24,16 @@ class Channel(models.Model):
 
     def get_absolute_url(self):
         return reverse("channel-detail", kwargs={"slug": self.slug})
+
+
+class Ticket(models.Model):
+    title = models.CharField(max_length=100)
+    tick_info = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.tick_info
+
+    def get_absolute_url(self):
+        return reverse('ticketRecieved', kwargs={'pk': self.pk})

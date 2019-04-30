@@ -26,7 +26,7 @@
 
         <!-- MESSAGING SYSTEM -->
         <div class="col-5" style="text-align:center; border-radius: 10px; background-color:#293132">
-            <h2>Messages</h2>
+            <h2 style="color:#00BFFF">Messages</h2>
             <!-- PLACE CHAT IN BETWEEN HERE-->
             <div style="border: 1px solid black; background-color:white">
                 <textarea id="chat-log" cols="50" rows="10"></textarea>
@@ -49,18 +49,18 @@
                     var message = data['message'];
                     document.querySelector('#chat-log').value += (message + '\n');
                 };
-    
+
                 chatSocket.onclose = function(e) {
                     console.error('Chat socket closed unexpectedly');
                 };
-    
+
                 document.querySelector('#chat-message-input').focus();
                 document.querySelector('#chat-message-input').onkeyup = function(e) {
                     if (e.keyCode === 13) {  // enter, return
                         document.querySelector('#chat-message-submit').click();
                     }
                 };
-    
+
                 document.querySelector('#chat-message-submit').onclick = function(e) {
                     var messageInputDom = document.querySelector('#chat-message-input');
                     var message = messageInputDom.value;

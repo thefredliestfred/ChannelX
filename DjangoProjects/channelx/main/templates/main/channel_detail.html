@@ -9,7 +9,7 @@
             <p style="color:white">Channel Name: {{ object.room_name }}</p>
             <p style="color:white">Channel Owner: {{ object.room_owner }}</p>
             <p style="color:white">Channel Type: -----</p>
-            <p style="color:white">Your Alias: -----</p>
+            <p style="color:white">Your Alias: {{ user.profile.anon }} </p>
             <p style="color:white">Schedule: </p>
             <div style="border-radius: 10px; background-color:white">
                 <p style="padding: 0 0 0 5px">Channel Life:</p>
@@ -29,13 +29,13 @@
         <script>
                 $(document).ready(function () {
                     $('#chat-submit').click(function () {
-                        var user = "{{ object.room_owner }}";
+                        var user = "{{ user.profile.anon }}";
                         var text = user + ": " + $('#chat-input').val() + "\n";
                         $('#chat-log').html($('#chat-log').html() + text);
                         $('#chat-input').val('');
                     });
                 });
-                </script>
+        </script>
         <div class="col-5" style="text-align:center; border-radius: 10px; background-color:#293132">
             <h2 style="color:#00BFFF">Messages</h2>
             <!-- PLACE CHAT IN BETWEEN HERE-->
@@ -48,7 +48,7 @@
             <p>
                 <br><input id="chat-submit" type="button" value="Send"/>
             </p>
-            
+
             <!-- AND HERE-->
         </div>
 

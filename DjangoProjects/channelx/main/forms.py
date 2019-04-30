@@ -8,4 +8,5 @@ class Channel(forms.ModelForm):
 
 
 class Ticket(forms.Form):
-    tick_info = forms.CharField(widget=forms.Textarea)
+    issue = forms.CharField(max_length=50)
+    problem_details = forms.CharField(widget=forms.Textarea)

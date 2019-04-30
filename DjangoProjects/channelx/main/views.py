@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (ListView, DetailView, CreateView, UpdateView,
                                   DeleteView)
 from main.models import Channel, Ticket
-from datetime import date
+from datetime import date, datetime
+from django.core.mail import send_mail
 from django.utils.safestring import mark_safe
 import json
 
@@ -65,12 +66,13 @@ class ChannelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 class TicketCreateView(CreateView):
     model = Ticket
     template_name = 'main/tickeRequest.html'
-    fields = ['tick_info']
-    success_url = 'ticketrecieved/'
+    fields = ['issue', 'problem_details']
+    now = datetime.now()
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        return super().form_valid(form)
+        send_mail(f'Ticket created by {form.instance.author} {self.now}', f'{self.fields}','WTAMU ChannelX Tickets', [ f'wtchanx2019@gmail.com',] )
+        return redirect('main-ticketrecieved')
 
 
 def aboutpage(request):

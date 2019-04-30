@@ -27,13 +27,16 @@ class Channel(models.Model):
 
 
 class Ticket(models.Model):
-    title = models.CharField(max_length=100)
-    tick_info = models.TextField()
+    issue = models.CharField(max_length=50)
+    problem_details = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def save(self, *args, **kwargs):
+        super(Ticket, self).save(*args, **kwargs)
+
     def __str__(self):
-        return self.tick_info
+        return self.problem_details
 
     def get_absolute_url(self):
         return reverse('ticketRecieved', kwargs={'pk': self.pk})

@@ -1,6 +1,11 @@
 {% extends "main/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-2"></div>
+    <div class="col-8" style="text-align:center; border: 1px solid black; background-color:gray">
+
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
@@ -9,8 +14,9 @@
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Request Password Reset</button>
+                <button class="btn" type="submit">Request Password Reset</button>
             </div>
         </form>
     </div>
+</div></div></div>
 {% endblock content %}

@@ -1,7 +1,7 @@
 {% extends "main/base.html" %}
 {% block content %}
 <!--Header and Title for pages-->
-<<head>
+<head>
 
 </head>
 
@@ -11,7 +11,14 @@
    <div class="row content">
      <div class="col-2"></div>
      <div class="col-8" style="text-align:center; border: 1px solid black; background-color:#293132">
-       <p style="color:white"> Thank you for reporting this issue, Ticket Number &lt;123456&gt;. We will contact your
+       <p style="color:white;font-size:20px">
+          Thank you for reporting this issue,
+          Ticket Number &lt;{{ user.username }}-<span id="datetime">
+            <script>
+            var dt = new Date();
+            document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+            </script>
+          </span>&gt;. We will contact your
          should we need more information and when the issue is resovled.</p>
      </div>
    </div>

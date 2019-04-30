@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
-
-import petname
+from coolname import generate_slug
 
 
 # Create your models here.

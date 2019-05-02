@@ -21,5 +21,4 @@ urlpatterns = [
     path('channel/<str:slug>/', ChannelDetailView.as_view(), name='channel-detail'),
     path('channel/<str:slug>/update/', ChannelUpdateView.as_view(), name='channel-update'),
     path('channel/<str:slug>/delete/', ChannelDeleteView.as_view(), name='channel-delete'),
-    url(r'^chat/', include('chat.urls')),
 ]

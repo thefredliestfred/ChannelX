@@ -23,3 +23,7 @@ class Channel(models.Model):
 
     def get_absolute_url(self):
         return reverse("channel-detail", kwargs={"slug": self.slug})
+
+class ChannelMembers(models.Model):
+    channel_id = models.IntegerField(unique=False, null=True, blank=False)
+    memeber_id = models.IntegerField(unique=False, null=True, blank=False)

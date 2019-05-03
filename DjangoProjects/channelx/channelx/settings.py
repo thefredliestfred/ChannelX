@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'chat.apps.ChatConfig',
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
     'crispy_forms',

@@ -1,5 +1,5 @@
-from django.db import models
 from datetime import date, datetime
+from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.template.defaultfilters import slugify
@@ -26,4 +26,4 @@ class Channel(models.Model):
 
 class ChannelMembers(models.Model):
     channel_id = models.IntegerField(unique=False, null=True, blank=False)
-    memeber_id = models.IntegerField(unique=False, null=True, blank=False)
+    member_id = models.IntegerField(unique=False, null=True, blank=False)

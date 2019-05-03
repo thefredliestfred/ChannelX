@@ -28,7 +28,6 @@ from main import urls as main_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^chat/', include('chat.urls')),
     url(r'^admin/', admin.site.urls),
     path('', include('main.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),

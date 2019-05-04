@@ -9,7 +9,7 @@
             <p>Enter an existing Channel Name:</p>
             <form style="width:100%; padding:0 25% 3% 25%" method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form }}
                 <button class="btn btn-secondary" type="submit">Join Channel</button>
             </form>
         </div>

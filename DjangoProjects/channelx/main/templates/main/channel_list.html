@@ -7,7 +7,7 @@
   <div class="container-fluid">
     <div class="row content">
     <!-- Left Side -->
-      <div class="col-8" style="text-align:center; background-color:#293132">
+      <div class="col-12" style="text-align:center; background-color:#293132">
         <!-- Channel List -->
         <h2>Channel List</h2>
         <!-- Search Channel -->
@@ -23,23 +23,11 @@
           <div class="table-wrapper-scroll-y" style="margin: 3%; background-color:#293132">
             {% for channel in channels %}
               <p style='margin:auto; padding:0px 0px 10px 0px'>
-                <a href="{% url 'channel-detail' channel.slug %}"><button style="padding-bottom: 5px" class='btn btn-secondary btn-block'>{{ channel.room_name }}<br>{List of Users}</button>
+                <a href="{% url 'channel-detail' channel.slug %}"><button style="padding-bottom: 5px" class='btn btn-secondary btn-block'>{{ channel.room_name }}</button>
               </p>
             {% endfor %}
           </div>
       </div>
-      <!-- Right Side -->
-      <div class="col-4" style="height:150px; background-color:#293132;">
-      <!-- Buttons -->
-                <p style='margin:auto; padding:20px 10px 0px 10px'>
-                    <a href="{% url 'channel-create' %}"><button class='btn btn-secondary btn-block'>Create Channel</button></a>
-                </p>
-                <p style='margin:auto; padding:20px 10px 0px 10px'>
-                    <a href="{% url 'main-findchannel' %}"><button class='btn btn-secondary btn-block'>Find a Channel</button></a>
-                </p>
-            </div>
-        </div>
-    </div>
   </div>
 </body>
 {% endblock content %}

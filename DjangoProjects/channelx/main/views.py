@@ -37,7 +37,11 @@ def join_channel(request):
 class ChannelListView(LoginRequiredMixin, ListView):
     model = Channel
     context_object_name = "channels"
-    template_name = "main/base.html"
+    #template_name = "main/base.html"
+
+class MemberListView(LoginRequiredMixin, ListView):
+    model = ChannelMembers
+    template_name = "main/channel_detail.html"
 
 class ChannelDetailView(LoginRequiredMixin, DetailView):
     model = Channel

@@ -5,12 +5,15 @@
       <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
         <div class="media-body">
-          <h2 class="account-heading" style="padding-left:20px">{{ user.username }}</h2>
-          <p class="text-secondary" style="padding-left:20px text-color:white">
-            Name: {{ user.first_name }} {{ user.last_name }}
+          <h2 class="account-heading" style="color:#00BFFF;padding-left:20px">{{ user.username }}</h2>
+          <a style="padding-left:5%; color:white">
+            Name: {{ user.first_name }} {{ user.last_name }}</a>
             <br>
-            Email: {{ user.email }}
-          </p>
+            <a style="padding-left:5%; color:white">
+            Email: {{ user.email }}</a>
+            <br>
+            <a style="padding-left:5%; color:white">
+            Alias: {{ user.profile.anon }}</a>
         </div>
       </div>
       <form style="width: 100%; padding:0 25% 0 25%" method="POST" enctype="multipart/form-data">
@@ -27,7 +30,7 @@
       <div class="border-top pts-3" style="padding-bottom:1%">
           <a style="text-align:center; padding-left:5px; color:white">Change your password?</a>
             <a href="{% url 'pword_reset' %}">Click here</a>
-            <a style="float:right; padding-right:5px"> Delete Account</a>
+            <!--<a style="float:right; padding-right:5px"> Delete Account</a>-->
       </div>
     </div>
 {% endblock content %}

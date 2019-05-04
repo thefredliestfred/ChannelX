@@ -1,10 +1,16 @@
 {% extends "main/base.html" %}
 {% block content %}
 
-<form method="POST">
-    {% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
-    <Button class="btn btn-danger" type="submit">Yes, Delete</Button>
-    <a class="btn btn-secondary" href="{% url 'channel-update' object.slug %}">Cancel</a>
-</form>
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-12" style="text-align:center; border: 1px solid black; background-color:#293132">
+          <form method="POST">
+            {% csrf_token %}
+            <h2 style="color:#00BFFF">Are you sure you want to delete "{{ object }}"?</h2>
+            <Button class="btn btn-danger" type="submit">Yes, Delete</Button>
+            <a class="btn btn-secondary" href="{% url 'channel-update' object.slug %}">Cancel</a>
+          </form>
+        </div>
+      </div>
+</div>
 {% endblock content %}

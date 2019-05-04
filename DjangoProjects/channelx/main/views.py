@@ -1,10 +1,12 @@
 from datetime import date
 import json
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from main.models import Channel, Ticket
+from datetime import date, datetime
+from django.core.mail import send_mail
 from django.utils.safestring import mark_safe
 from main.models import Channel, ChannelMembers
 from main.forms import JoinChannelForm
@@ -56,6 +58,7 @@ class ChannelCreateView(LoginRequiredMixin, CreateView):
         form.instance.start_life = date.today()
         return super().form_valid(form)
 
+
 class ChannelUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Channel
     template_name = 'main/channelSettings.html'
@@ -81,6 +84,17 @@ class ChannelDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == channel.room_owner:
             return True
         return False
+
+class TicketCreateView(CreateView):
+    model = Ticket
+    template_name = 'main/tickeRequest.html'
+    fields = ['issue', 'problem_details']
+    now = datetime.now()
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        send_mail(f'Ticket created by {form.instance.author} {self.now}', f'{self.fields}','WTAMU ChannelX Tickets', [ f'wtchanx2019@gmail.com',] )
+        return redirect('main-ticketrecieved')
 
 def aboutpage(request):
     return render(request, "main/about.html", {"title": "About"})

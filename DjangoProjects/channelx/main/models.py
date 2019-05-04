@@ -1,3 +1,5 @@
+from django.db import models
+from django.utils import timezone
 from datetime import date, datetime
 from django.db import models
 from django.contrib.auth.models import User
@@ -27,3 +29,18 @@ class Channel(models.Model):
 class ChannelMembers(models.Model):
     channel_id = models.IntegerField(unique=False, null=True, blank=False)
     member_id = models.IntegerField(unique=False, null=True, blank=False)
+
+class Ticket(models.Model):
+    issue = models.CharField(max_length=50)
+    problem_details = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def save(self, *args, **kwargs):
+        super(Ticket, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.problem_details
+
+    def get_absolute_url(self):
+        return reverse('ticketRecieved', kwargs={'pk': self.pk})

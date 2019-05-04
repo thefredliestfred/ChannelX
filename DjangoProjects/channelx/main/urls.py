@@ -1,5 +1,9 @@
 from django.urls import path
 from django.conf.urls import include
+from django.urls import path, re_path
+from . import views
+from .views import (ChannelDetailView, ChannelCreateView, ChannelListView,
+        ChannelUpdateView, ChannelDeleteView, TicketCreateView)
 from users import views as users_views
 from . import views
 from .views import (
@@ -27,4 +31,6 @@ urlpatterns = [
     path('channel/<str:slug>/', ChannelDetailView.as_view(), name='channel-detail'),
     path('channel/<str:slug>/update/', ChannelUpdateView.as_view(), name='channel-update'),
     path('channel/<str:slug>/delete/', ChannelDeleteView.as_view(), name='channel-delete'),
+    path('ticketrequest/',   TicketCreateView.as_view(template_name='main/ticketRequest.html'), name='main-ticketrequest'),
+
 ]

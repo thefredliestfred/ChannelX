@@ -38,6 +38,8 @@
                         {% if user.is_authenticated %}
                         <a style="color:#00BFFF" class="nav-item nav-link" href="{% url 'channel-create' %}">Create Channel</a>
                         <a style="color:#00BFFF" class="nav-item nav-link" href="{% url 'main-findchannel' %}">Find Channel</a>
+                        <a style="color:#00BFFF" class="nav-item nav-link" href="{% url 'main-channel-list' %}">Channel List</a>
+
                         {% endif %}
                         <a style="color:#00BFFF" class="nav-item nav-link" href="{% url 'main-ticketrequest' %}">Submit a Ticket</a>
                     </div>

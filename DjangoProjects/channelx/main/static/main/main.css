@@ -1,6 +1,6 @@
 body {
   padding:0;
-  background-color: #a6a6a6;
+  background-color: #575970;
   margin-top: 5rem;
 }
 
@@ -11,7 +11,7 @@ ul {
   margin: 0;}
 
 tr:nth-child(even) {
-  background-color: #D6DBDF}
+  background-color: #575970}
 
 .bg-steel {
   background-color: #293132;}

@@ -1,6 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang='en-US'>
+<!-- 
+    Last Update: 
+        05/04/19 by Tarren Bos 
+
+    This is a base template for the entire site. All templates are routed through this code in
+    order to use the NavBar and all installed addons
+-->
 
 <!-- Header and Title -->
 <head>
@@ -15,6 +22,12 @@
 
     <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     {% if title %}
         <title>ChannelX - {{ title }}</title>
@@ -24,70 +37,80 @@
 </head>
 
 <!--- Items on page -->
-<div class="container">
-
+<body>
    <header class="site-header">
         <!-- The Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-steel fixed-top">
-            <a class="navbar-brand" href="{% url 'main-home' %}">ChannelX</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigaiton">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- The Left Side of the NavBar -->
-                <div class="navbar-nav mr-auto">
-                    <a class="nav-link" href="{% url 'main-about' %}">About</a>
-                    {% if user.is_authenticated %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Channel</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'main-findchannel' %}">Find Channel</a>
-                                <a class="dropdown-item" href="{% url 'channel-create' %}">Create Channel</a>
-                                <a class="dropdown-item" href="{% url 'main-channel-list' %}">Channel List</a>
-                            </div>
-                        </li> 
-                    {% endif %}
-                </div>
-                <!-- The Right Side of the NavBar -->
-                <div class="navbar-nav">
-                    <a class="nav-link" href="#">Ticket</a>
-                    {% if user.is_authenticated %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
-                                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                            </div>
-                        </li> 
-                    {% else %}
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-link" href="{% url 'users-register' %}">Register</a>
-                    {% endif %}
+            <div class="container"> <!-- Causes page to be a specific length of 12 cols -->
+                <a class="navbar-brand" href="{% url 'main-home' %}">ChannelX</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigaiton">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- The Left Side of the NavBar -->
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-link" href="{% url 'main-about' %}">About</a>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Channel</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{% url 'main-findchannel' %}">Find Channel</a>
+                                    <a class="dropdown-item" href="{% url 'channel-create' %}">Create Channel</a>
+                                    <a class="dropdown-item" href="{% url 'main-channel-list' %}">Channel List</a>
+                                </div>
+                            </li> 
+                        {% endif %}
+                    </div>
+                    <!-- The Right Side of the NavBar -->
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="{% url 'main-ticketrequest' %}">Ticket</a>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                                </div>
+                            </li> 
+                        {% else %}
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                            <a class="nav-link" href="{% url 'users-register' %}">Register</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
     <main role="main" class="container">
-            <div class="row">
-                <div style="width:100%; padding-top:16px">
-                {% if messages %}
-                    {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">
-                        {{ message }}
-                    </div>
-                    {% endfor %}
-                {% endif %}
+        <div class="row">
+            <!-- The Channel List SideBar -->
+            <div class="col-md-3">
+                <div class="content-section">
+                    <h3>Channel List</h3>
+                    <p>
+                        <ul class="list-group">
+                            {% for channel in channels %}
+                                <li class="list-group-item">{{ channel.room_name }}</li>
+                            {% endfor %}
+                            <li class="list-group-item">Test</li>
+                        </ul>
+                    </p>
                 </div>
             </div>
-            {% block content %}{% endblock %}
+            <div class="col-md-9">
+                <!-- Messages from site displayed below the NavBar -->
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <!-- Template pages are routed through the blocked content to use this base template -->
+                {% block content %}{% endblock %}
+            </div>
+        </div>
     </main>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</div>
+</body>
 </html>

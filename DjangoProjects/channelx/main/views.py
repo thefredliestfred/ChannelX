@@ -1,14 +1,13 @@
-from datetime import date
+from datetime import date, datetime
 import json
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from main.models import Channel, Ticket
-from datetime import date, datetime
 from django.core.mail import send_mail
 from django.utils.safestring import mark_safe
-from main.models import Channel, ChannelMembers
+from main.models import Channel, ChannelMembers, Ticket
 from main.forms import JoinChannelForm
 
 def homepage(request):
@@ -35,11 +34,10 @@ def join_channel(request):
         form = JoinChannelForm()
     return render(request, 'main/findChannel.html', {'form': form})
 
-
-class ChannelListView(LoginRequiredMixin, ListView):
+class ChannelListView(ListView):
     model = Channel
     context_object_name = "channels"
-    #template_name = "main/base.html"
+    template_name = "main/base.html"
 
 class MemberListView(LoginRequiredMixin, ListView):
     model = ChannelMembers
@@ -93,7 +91,7 @@ class TicketCreateView(CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        send_mail(f'Ticket created by {form.instance.author} {self.now}', f'{self.fields}','WTAMU ChannelX Tickets', [ f'wtchanx2019@gmail.com',] )
+        send_mail(f'Ticket created by {form.instance.author} {self.now}', f'{self.fields}', 'WTAMU ChannelX Tickets', [f'wtchanx2019@gmail.com',])
         return redirect('main-ticketrecieved')
 
 def aboutpage(request):

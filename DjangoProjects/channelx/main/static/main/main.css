@@ -1,10 +1,10 @@
 body {
-    padding:0;
-    background-color: #575970;
-    margin-top: 5rem;
+    background-color: #575970 ;
+    margin-top: 75px;
 }
 
 h1, h2, h3, h4, h5, h6 {
+    text-align: center;
     color: #00BFFF;
 }
 

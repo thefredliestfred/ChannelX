@@ -3,15 +3,40 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (ListView, DetailView, CreateView, UpdateView,
                                   DeleteView)
-from main.models import Channel, Ticket
+from main.models import Channel, Ticket, Messages
 from datetime import date, datetime
 from django.core.mail import send_mail
 from django.utils.safestring import mark_safe
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseNotAllowed
 import json
 
 
 def homepage(request):
     return render(request, "main/home.html", {"title": "Home"})
+
+@login_required
+def post(request, slug):
+    if request.method == 'POST':
+        room = Channel.objects.get(room_name = slug)
+        mfrom = request.POST['from']
+        text = request.POST['text']
+
+        msg = Message(room=room, user = mfrom, text=text)
+        msg.save()
+        body = json.dumps(msg.to_data())
+
+        return HttpResponse(body, content_type = 'application/json')
+    else:
+        room_owner = request.GET.get('user')
+        room = Channel.objects.get(slug=slug, room_owner=request.user)
+        cmsgs = Messages.objects.filter(
+            room=room).order_by('-date')[:50]
+        msgs=[]
+        for msg in reversed(cmsgs):
+            msgs.append(msg.to_data())
+        
+        return render(request, 'main/channel_detail.html', {'slug' : slug})
+    
 
 
 class ChannelListView(LoginRequiredMixin, ListView):

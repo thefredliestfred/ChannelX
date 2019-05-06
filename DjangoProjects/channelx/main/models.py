@@ -40,3 +40,17 @@ class Ticket(models.Model):
 
     def get_absolute_url(self):
         return reverse('ticketRecieved', kwargs={'pk': self.pk})
+        
+class Messages(models.Model):
+    room = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    date = models.DateTimeField(auto_now=True, db_index=True)
+    text = models.TextField()
+
+    def to_data(self):
+        out = {}
+        out['id'] = self.room
+        out['from'] = self.user
+        out['text'] = self.text
+        return out
+

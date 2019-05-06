@@ -1,6 +1,6 @@
 from django.urls import path, re_path
 from . import views
-from .views import ChannelListView, ChannelDetailView, ChannelCreateView, ChannelUpdateView, ChannelDeleteView
+from .views import ChannelListView, ChannelCreateView, ChannelUpdateView, ChannelDeleteView, ChannelDetailView
 from users import views as users_views
 
 # Need to later set up path for finding the channel

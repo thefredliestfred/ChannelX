@@ -1,15 +1,22 @@
 {% extends "main/base.html" %}
 {% block content %}
+{% load crispy_forms_tags %}
+<!-- 
+    Last Update: 
+        05/05/19 by Tarren Bos 
+
+    This is the join channel page where the user is able to join a channel.
+-->
 
 <!--All the stuff you see-->
 <div class="container-fluid">
     <div class="row-content">
-        <div class="col-12" style="text-align:center; border: 1px solid black; background-color:#293132">
+        <div class="col" style="text-align: center; border-radius: 10px; border: 1px solid black; background-color: #293132">
             <h2>Join a Channel</h2>
-            <p>Enter an existing Channel Name:</p>
-            <form style="width:100%; padding:0 25% 3% 25%" method="post">
+            <p style="color: white">Enter an existing Channel Name:</p>
+            <form style="width: 100%; padding: 0 25% 3% 25%; color: white" method="post">
                 {% csrf_token %}
-                {{ form }}
+                {{ form|crispy }}
                 <button class="btn btn-secondary" type="submit">Join Channel</button>
             </form>
         </div>

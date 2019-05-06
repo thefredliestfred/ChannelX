@@ -3,7 +3,7 @@
 <html lang='en-US'>
 <!-- 
     Last Update: 
-        05/04/19 by Tarren Bos 
+        05/06/19 by Tarren Bos 
 
     This is a base template for the entire site. All templates are routed through this code in
     order to use the NavBar and all installed addons
@@ -85,20 +85,21 @@
     <main role="main" class="container">
         <div class="row">
             <!-- The Channel List SideBar -->
-            <div class="col-md-3">
-                <div class="content-section">
-                    <h3>Channel List</h3>
-                    <p>
-                        <ul class="list-group">
-                            {% for channel in channels %}
-                                <li class="list-group-item">{{ channel.room_name }}</li>
-                            {% endfor %}
-                            <li class="list-group-item">Test</li>
-                        </ul>
-                    </p>
+            {% if user.is_authenticated %}
+                <div class="col-md-3">
+                    <div class="content-section">
+                        <h3>Channel List</h3>
+                        <p>
+                            <ul class="list-group">
+                                {% for channel in channels %}
+                                    <a href="{% url 'channel-detail' channel.slug %}" class="list-group-item list-group-item-action">{{ channel.room_name }}</a>
+                                {% endfor %}
+                            </ul>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-9">
+            {% endif %}
+            <div class="col">
                 <!-- Messages from site displayed below the NavBar -->
                 {% if messages %}
                     {% for message in messages %}

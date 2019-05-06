@@ -24,9 +24,6 @@ from django.views.generic.base import TemplateView
 from main import urls as main_urls
 from django.contrib import admin
 
-# Need to later set up path for finding the channel
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^admin/', admin.site.urls),

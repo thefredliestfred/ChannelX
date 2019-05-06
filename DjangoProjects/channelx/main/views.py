@@ -5,9 +5,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from main.models import Channel, ChannelMembers, Ticket
 from django.core.mail import send_mail
 from django.utils.safestring import mark_safe
-from main.models import Channel, ChannelMembers, Ticket
 from main.forms import JoinChannelForm
 
 def homepage(request):
@@ -34,10 +34,14 @@ def join_channel(request):
         form = JoinChannelForm()
     return render(request, 'main/findChannel.html', {'form': form})
 
-class ChannelListView(ListView):
+class BaseLayout(ListView):
     model = Channel
     context_object_name = "channels"
     template_name = "main/base.html"
+    
+class ChannelListView(ListView):
+    model = Channel
+    context_object_name = "channels"
 
 class MemberListView(LoginRequiredMixin, ListView):
     model = ChannelMembers

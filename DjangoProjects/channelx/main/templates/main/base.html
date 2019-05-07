@@ -85,20 +85,7 @@
     <main role="main" class="container">
         <div class="row">
             <!-- The Channel List SideBar -->
-            {% if user.is_authenticated %}
-                <div class="col-md-3">
-                    <div class="content-section">
-                        <h3>Channel List</h3>
-                        <p>
-                            <ul class="list-group">
-                                {% for channel in channels %}
-                                    <a href="{% url 'channel-detail' channel.slug %}" class="list-group-item list-group-item-action">{{ channel.room_name }}</a>
-                                {% endfor %}
-                            </ul>
-                        </p>
-                    </div>
-                </div>
-            {% endif %}
+
             <div class="col">
                 <!-- Messages from site displayed below the NavBar -->
                 {% if messages %}

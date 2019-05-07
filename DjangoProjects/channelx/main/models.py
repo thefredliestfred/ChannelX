@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 
-
 class Channel(models.Model):
     room_name = models.CharField(max_length=30, unique=True)
     start_life = models.DateField(default=date.today, null=True)
@@ -24,6 +23,11 @@ class Channel(models.Model):
 
     def get_absolute_url(self):
         return reverse("channel-detail", kwargs={"slug": self.slug})
+
+    @property
+    def quiet_hours(self):
+        now = datetime.now().time()
+        return self.start_quiet_hour <= now < self.end_quiet_hour
 
 
 class Ticket(models.Model):

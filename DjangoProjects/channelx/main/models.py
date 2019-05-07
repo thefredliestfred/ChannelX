@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.template.defaultfilters import slugify
 
-
 class Channel(models.Model):
     room_name = models.CharField(max_length=30, unique=True)
     start_life = models.DateField(default=date.today, null=True)
@@ -29,6 +28,11 @@ class Channel(models.Model):
 class ChannelMembers(models.Model):
     channel_id = models.IntegerField(unique=False, null=True, blank=False)
     member_id = models.IntegerField(unique=False, null=True, blank=False)
+    @property
+    def quiet_hours(self):
+        now = datetime.now().time()
+        return self.start_quiet_hour <= now < self.end_quiet_hour
+
 
 class Ticket(models.Model):
     issue = models.CharField(max_length=50)
@@ -44,3 +48,17 @@ class Ticket(models.Model):
 
     def get_absolute_url(self):
         return reverse('ticketRecieved', kwargs={'pk': self.pk})
+        
+class Messages(models.Model):
+    room = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    date = models.DateTimeField(auto_now=True, db_index=True)
+    text = models.TextField()
+
+    def to_data(self):
+        out = {}
+        out['id'] = self.room
+        out['from'] = self.user
+        out['text'] = self.text
+        return out
+

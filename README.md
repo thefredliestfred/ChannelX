@@ -1,3 +1,26 @@
+# How to Run Locally
+  
+  Run the following commands:
+  ```
+  python3 -m venv env
+  source env/bin/activate
+  ```
+  Navigate to the directory where the file manage.py is located. Run the following commands.
+  ```
+  python -m pip install -r requirements.txt
+  ./manage.py makemigrations
+  ./manage.py migrate
+  ./manage.py runserver
+  ```
+  Once these commands have been executed, open 'localhost:8000' inside your browser and the ChannelX application will start.
+
+# ChannelX - Phase 4 (5/7/19)
+
+  The requirements for Phase 4 are as follows:
+    - Database finalization and a support ticket system
+  
+  Both requirements for this phase are complete.
+
 # ChannelX - Phase 3 (3/39/19)
 
   In order to run this project, you need to follow the instructions listed in the django_install_instructions.txt located in the DjangoProjects folder while running a virtual environment in the terminal.

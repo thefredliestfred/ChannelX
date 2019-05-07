@@ -5,10 +5,13 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from main.models import Channel, ChannelMembers, Ticket
+from main.models import Channel, ChannelMembers, Ticket, Messages
 from django.core.mail import send_mail
 from django.utils.safestring import mark_safe
 from main.forms import JoinChannelForm
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, HttpResponseNotAllowed
+import json
+
 
 def homepage(request):
     return render(request, "main/home.html", {"title": "Home"})
@@ -39,9 +42,34 @@ class BaseLayout(ListView):
     context_object_name = "channels"
     template_name = "main/base.html"
     
-class ChannelListView(ListView):
-    model = Channel
-    context_object_name = "channels"
+# class ChannelListView(ListView):
+#     def post(request, slug):
+#         if request.method == 'POST':
+#             room = Channel.objects.get(room_name = slug)
+#             mfrom = request.POST['from']
+#             text = request.POST['text']
+
+#             msg = Message(room=room, user = mfrom, text=text)
+#             msg.save()
+#             body = json.dumps(msg.to_data())
+
+#             return HttpResponse(body, content_type = 'application/json')
+#         else:
+#             room_owner = request.GET.get('user')
+#             room = Channel.objects.get(slug=slug, room_owner=request.user)
+#             cmsgs = Messages.objects.filter(
+#                 room=room).order_by('-date')[:50]
+#             msgs=[]
+#             for msg in reversed(cmsgs):
+#                 msgs.append(msg.to_data())
+        
+#         return render(request, 'main/channel_detail.html', {'slug' : slug})
+    
+
+
+class ChannelListView(LoginRequiredMixin, ListView):
+     model = Channel
+     context_object_name = "channels"
 
 class MemberListView(LoginRequiredMixin, ListView):
     model = ChannelMembers
@@ -50,6 +78,27 @@ class MemberListView(LoginRequiredMixin, ListView):
 class ChannelDetailView(LoginRequiredMixin, DetailView):
     model = Channel
     template_name = "main/channel_detail.html"
+    def post(request, slug):
+        if request.method == 'POST':
+            room = Channel.objects.get(room_name = slug)
+            mfrom = request.POST['from']
+            text = request.POST['text']
+
+            msg = Message(room=room, user = mfrom, text=text)
+            msg.save()
+            body = json.dumps(msg.to_data())
+
+            return HttpResponse(body, content_type = 'application/json')
+        else:
+            room_owner = request.GET.get('user')
+            room = Channel.objects.get(slug=slug, room_owner=request.user)
+            cmsgs = Messages.objects.filter(
+                room=room).order_by('-date')[:50]
+            msgs=[]
+            for msg in reversed(cmsgs):
+                msgs.append(msg.to_data())
+        
+        return render(request, 'main/channel_detail.html', {'slug' : slug})
 
 class ChannelCreateView(LoginRequiredMixin, CreateView):
     model = Channel

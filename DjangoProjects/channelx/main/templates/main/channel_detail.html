@@ -26,21 +26,16 @@
 
         <!-- MESSAGING SYSTEM -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>
-                $(document).ready(function () {
-                    $('#chat-submit').click(function () {
-                        var user = "{{ user.profile.anon }}";
-                        var text = user + ": " + $('#chat-input').val() + "\n";
-                        $('#chat-log').html($('#chat-log').html() + text);
-                        $('#chat-input').val('');
-                    });
-                });
-        </script>
+
         <div class="col-5" style="text-align:center; border-radius: 10px; background-color:#293132">
             <h2 style="color:#00BFFF">Messages</h2>
             <!-- PLACE CHAT IN BETWEEN HERE-->
             <div style="border: 1px solid black; background-color:white">
                 <textarea id="chat-log" cols="50" rows="10"></textarea>
+                <script>
+                    var chatlist = document.getElementById('chat-log');
+                    chatlist.scrollTop = chatlist.scrollHeight;
+                </script>
             </div>
             <section style="width:100%; margin-top:15px">
                 <input id="chat-input" type="text" size="50"/><br/>
@@ -48,8 +43,17 @@
             <p>
                 <br><input id="chat-submit" type="button" value="Send"/>
             </p>
-
-            <!-- AND HERE-->
+            <script>
+                $(document).ready(function () {
+                    $('#chat-submit').click(function () {
+                        var user = "{{ user.profile.anon }}";
+                        var text = user + ": " + $('#chat-input').val() + "\n";
+                        $('#chat-log').html($('#chat-log').html() + text);
+                        $('#chat-input').val('');
+                    });
+                    $.post('channel/{{ slug }}', { from: user, text: text });
+                });
+            </script>
         </div>
 
         <!--Contact list-->
@@ -70,4 +74,11 @@
         </div>
     </div>
 </div>
+
+{% if object.quiet_hours %}
+    <script>
+        alert("This channel is in quiet hours!");
+    </script>
+{% endif %}
+
 {% endblock content %}

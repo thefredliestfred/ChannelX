@@ -80,4 +80,11 @@
         </div>
     </div>
 </div>
+
+{% if object.quiet_hours %}
+    <script>
+        alert("This channel is in quiet hours!");
+    </script>
+{% endif %}
+
 {% endblock content %}

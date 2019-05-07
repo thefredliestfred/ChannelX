@@ -25,13 +25,15 @@ class Channel(models.Model):
     def get_absolute_url(self):
         return reverse("channel-detail", kwargs={"slug": self.slug})
 
-class ChannelMembers(models.Model):
-    channel_id = models.IntegerField(unique=False, null=True, blank=False)
-    member_id = models.IntegerField(unique=False, null=True, blank=False)
     @property
     def quiet_hours(self):
         now = datetime.now().time()
         return self.start_quiet_hour <= now < self.end_quiet_hour
+
+class ChannelMembers(models.Model):
+    channel_id = models.IntegerField(unique=False, null=True, blank=False)
+    member_id = models.IntegerField(unique=False, null=True, blank=False)
+    
 
 
 class Ticket(models.Model):

@@ -1,5 +1,5 @@
 from django.test import TestCase
-from main.models import Channel, Ticket, Messages
+from main.models import Channel, Ticket, Messages, ChannelMembers
 from django.contrib.auth.models import User
 from datetime import date, datetime
 from django.contrib.auth import get_user_model
@@ -76,6 +76,19 @@ class PageTest(TestCase):
         response = self.client.get('/')
         self.assertEquals(response.status_code, 200)
 
-#class QuietHoursTest(TestCase):
-#
-#    def test_hours(self):
+class ChannelMembersTest(TestCase):
+
+    def test_channel_members(self):
+        member = ChannelMembers.objects.create(channel_id=400, member_id=400)
+
+        self.assertEqual(member.channel_id, 400)
+        self.assertEqual(member.member_id, 400)
+
+class QuietHoursTest(TestCase):
+
+    def test_hours(self):
+        testnow = (3, 10, 2, 405500)
+        test_start = (2, 10, 2, 405500)
+        test_end = (4, 10, 2, 405500)
+
+        self.assertTrue(test_start <= testnow < test_end)

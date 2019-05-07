@@ -1,4 +1,0 @@
--- Python photo manager
-    pip install Pillow   
--- Django channels installation
-    pip install -U channels 

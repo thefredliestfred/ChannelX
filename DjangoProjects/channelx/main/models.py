@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from datetime import date, datetime
+from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.template.defaultfilters import slugify
@@ -24,6 +25,9 @@ class Channel(models.Model):
     def get_absolute_url(self):
         return reverse("channel-detail", kwargs={"slug": self.slug})
 
+class ChannelMembers(models.Model):
+    channel_id = models.IntegerField(unique=False, null=True, blank=False)
+    member_id = models.IntegerField(unique=False, null=True, blank=False)
     @property
     def quiet_hours(self):
         now = datetime.now().time()

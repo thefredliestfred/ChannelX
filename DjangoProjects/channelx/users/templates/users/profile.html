@@ -1,11 +1,11 @@
 {% extends "main/base.html" %}
 {% block content %}
 {% load crispy_forms_tags %}
-    <div class="content-section" style="color:white; border: 1px solid black; background-color:#293132">
+    <div class="content-section" style="color:white; border-radius: 10px; border: 1px solid black; background-color:#293132">
       <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
         <div class="media-body">
-          <h2 class="account-heading" style="color:#00BFFF;padding-left:20px">{{ user.username }}</h2>
+          <p class="account-heading" style="color:#00BFFF;">{{ user.username }}</p>
           <a style="padding-left:5%; color:white">
             Name: {{ user.first_name }} {{ user.last_name }}</a>
             <br>

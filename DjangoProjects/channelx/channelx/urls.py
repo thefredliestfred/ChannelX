@@ -16,17 +16,17 @@ Including another URLconf
 from django.contrib.auth import views as auth_views
 from users import views as user_views
 from django.urls import path, include
+from django.conf.urls import include, url
+from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic.base import TemplateView
 from main import urls as main_urls
 from django.contrib import admin
 
-# Need to later set up path for finding the channel
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', include('main.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),

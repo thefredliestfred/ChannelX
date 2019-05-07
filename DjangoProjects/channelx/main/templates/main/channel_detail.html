@@ -58,25 +58,19 @@
 
         <!--Contact list-->
         <div class="col-3" style="padding:5px; border-radius: 10px; text-align:center; background-color:#293132">
-            <h2 style="color:#00BFFF">Contact List</h2>
-            <div class="search-container">
-                <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
+            <h2>Contact List</h2>
+            <div class="table-wrapper-scroll-y" style="border: 1px solid black; background-color:white">
+                {% for channelmembers in channelmembers_list %}
+                    <p style='margin:auto; padding:0px 0px 10px 0px'>
+                        <a href="#"><button style="padding-bottom: 5px" class='btn btn-secondary btn-block'>{{ channelmembers.member_id }}</button></a>
+                    </p>
+                    {% if channelmembers.channel_id == object.pk %}
+                        <p style='margin:auto; padding:0px 0px 10px 0px'>
+                            <a href="#"><button style="padding-bottom: 5px" class='btn btn-secondary btn-block'>{{ channelmembers.member_id }}</button></a>
+                        </p>
+                    {% endif %}
+                {% endfor %}
             </div>
-            <section style="padding:5%">
-                <div style="border: 1px solid black; background-color:white">
-                    <table style="width:100%; text-align:center">
-                        <tbody>
-                            <tr> <td>User Alias 1</td> </tr>
-                            <tr> <td>User Alias 2</td> </tr>
-                            <tr> <td>User Alias 3</td> </tr>
-                            <tr> <td>User Alias 4</td> </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
         </div>
     </div>
 </div>
